@@ -1,3 +1,4 @@
 {
-  "conventionalCommits.scopes": ["Project"]
+  "conventionalCommits.scopes": ["Project", "Login"],
+  "typescript.tsdk": "node_modules\\typescript\\lib"
 }
