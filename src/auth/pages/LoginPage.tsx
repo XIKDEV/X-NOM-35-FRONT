@@ -1,6 +1,12 @@
+import { LoginPageHooks } from '../hooks';
+
+import { authConstants } from '../../constants/authConstants';
+
 import '../ui/loginPage.css';
 
 export const LoginPage = () => {
+  LoginPageHooks();
+
   return (
     <div className="login">
       <form>
@@ -13,7 +19,7 @@ export const LoginPage = () => {
           <input type="email" placeholder="Email" />
           <input type="password" placeholder="Contraseña" />
         </div>
-        <button>Iniciar sesión</button>
+        <button>{authConstants.bttnLogin}</button>
       </form>
     </div>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
-// import Nom035app from './Nom035App.tsx';
 import { LoginPage } from './auth/pages';
 
 import './ui/css/global.css';
