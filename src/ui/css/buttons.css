@@ -1,0 +1,33 @@
+button {
+  height: 34px;
+  border: none;
+  border-radius: 4px;
+
+  background: var(--primary);
+
+  color: var(--gray);
+}
+
+/** Laptop screen **/
+@media (min-width: 769px) {
+  button {
+    height: 50px;
+  }
+}
+
+/* Login */
+.login form button {
+  width: calc(100% - 50px);
+  margin-bottom: 45px;
+
+  font-size: var(--text-small);
+}
+/** Laptop screen **/
+@media (min-width: 769px) {
+  .login form button {
+    width: calc(100% - 96px);
+    margin: 0px;
+
+    font-size: var(--text);
+  }
+}
