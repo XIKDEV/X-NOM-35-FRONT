@@ -6,23 +6,24 @@ button {
   background: var(--primary);
 
   color: var(--gray);
+  cursor: pointer;
 }
 
-/** Laptop screen **/
+/*? Laptop screen ?*/
 @media (min-width: 769px) {
   button {
     height: 50px;
   }
 }
 
-/* Login */
+/** Login **/
 .login form button {
   width: calc(100% - 50px);
   margin-bottom: 45px;
 
   font-size: var(--text-small);
 }
-/** Laptop screen **/
+/*? Laptop screen ?*/
 @media (min-width: 769px) {
   .login form button {
     width: calc(100% - 96px);
@@ -30,4 +31,16 @@ button {
 
     font-size: var(--text);
   }
+}
+
+/** Layout **/
+.button-sidebar {
+  width: 100%;
+  background-color: transparent;
+
+  font-size: var(--text);
+  color: var(--primary);
+}
+.sidebar-nav .button-sidebar:first-child {
+  margin-bottom: 44px;
 }
