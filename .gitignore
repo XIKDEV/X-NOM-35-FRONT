@@ -8,6 +8,7 @@ lerna-debug.log*
 .pnpm-debug.log*
 src/test/auth/pages/__snapshots__/
 src/test/__snapshots__/
+src/test/layouts/__snapshots__
 yarn.lock
 .scannerwork/
 

@@ -1,0 +1,24 @@
+main {
+  display: flex;
+}
+
+.sidebar {
+  width: 228px;
+  height: 100vh;
+
+  background-color: var(--dark);
+
+  justify-content: space-between;
+}
+.sidebar-logo {
+  width: 94px;
+  margin-top: 47px;
+
+  cursor: pointer;
+}
+.sidebar-bttns {
+  width: 100%;
+}
+.sidebar-bttns:last-child {
+  margin-bottom: 47px;
+}
