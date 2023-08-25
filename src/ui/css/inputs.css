@@ -1,0 +1,41 @@
+/** Global **/
+input {
+  background-color: transparent;
+  border: none;
+  border-bottom: 1px solid var(--primary);
+
+  font-size: var(--text-small);
+  caret-color: var(--primary);
+}
+input:focus {
+  outline: none;
+}
+/*? Laptop screen ?*/
+@media (min-width: 769px) {
+  input {
+    font-size: var(--text);
+  }
+}
+
+/** Login **/
+.login-inputs input {
+  width: 100%;
+  height: 34px;
+
+  font-size: var(--text);
+  color: var(--gray);
+}
+.login-inputs :first-child {
+  margin-bottom: 12px;
+}
+
+/** Layout **/
+.nav input {
+  width: 100%;
+  height: 32px;
+  margin: 0px 8px;
+  border: none;
+
+  font-size: var(--text-small);
+  background-color: var(--gray);
+}

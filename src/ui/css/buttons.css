@@ -1,0 +1,77 @@
+/** Global **/
+button {
+  height: 34px;
+  border: none;
+  border-radius: 4px;
+
+  background: var(--primary);
+
+  color: var(--gray);
+  cursor: pointer;
+}
+
+/*? Laptop screen ?*/
+@media (min-width: 769px) {
+  button {
+    height: 50px;
+  }
+}
+
+/** Login **/
+.login form button {
+  width: calc(100% - 50px);
+  margin-bottom: 45px;
+
+  font-size: var(--text-small);
+}
+/*? Laptop screen ?*/
+@media (min-width: 769px) {
+  .login form button {
+    width: calc(100% - 96px);
+    margin: 0px;
+
+    font-size: var(--text);
+  }
+}
+
+/** Layout **/
+.sidebar-open-close {
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  top: 0px;
+
+  background-color: transparent;
+
+  font-size: var(--text);
+  color: var(--primary);
+}
+.button-sidebar {
+  width: 100%;
+
+  background-color: transparent;
+
+  font-size: var(--text-small);
+  color: var(--primary);
+}
+.sider-navigation .button-sidebar:first-child {
+  margin-bottom: 68px;
+}
+.nav button {
+  min-width: 32px;
+  min-height: 32px;
+
+  font-size: var(--title-small);
+}
+.nav button:first-child {
+  background-color: transparent;
+
+  color: var(--primary);
+}
+/** Laptop screen **/
+@media (min-width: 769px) {
+  .button-sidebar {
+    font-size: var(--text);
+    color: var(--primary);
+  }
+}

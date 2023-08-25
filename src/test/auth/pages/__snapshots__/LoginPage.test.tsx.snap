@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test in <LoginPage /> should be match with the snapshot 1`] = `
+<div>
+  <div
+    class="login"
+  >
+    <form>
+      <img
+        alt="XikDev"
+        class="logo"
+        src="../../../public/XIK_VerdeTransparente.png"
+      />
+      <div
+        class="login-inputs"
+      >
+        <input
+          placeholder="Email"
+          type="email"
+        />
+        <input
+          placeholder="Contraseña"
+          type="password"
+        />
+      </div>
+      <button>
+        Iniciar sesión
+      </button>
+    </form>
+  </div>
+</div>
+`;
