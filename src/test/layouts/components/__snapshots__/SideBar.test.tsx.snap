@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test in <SideBar /> should render correctly 1`] = `
+<DocumentFragment>
+  <div
+    class="sider-content flex-column-center space-between"
+  >
+    <button
+      class="sidebar-open-close"
+      data-testid="sidebar-open-close"
+    >
+      <svg
+        aria-hidden="true"
+        class="svg-inline--fa fa-arrow-right "
+        data-icon="arrow-right"
+        data-prefix="fas"
+        focusable="false"
+        role="img"
+        style="transition: all 0.2s ease-in-out;"
+        viewBox="0 0 448 512"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M438.6 278.6c12.5-12.5 12.5-32.8 0-45.3l-160-160c-12.5-12.5-32.8-12.5-45.3 0s-12.5 32.8 0 45.3L338.8 224 32 224c-17.7 0-32 14.3-32 32s14.3 32 32 32l306.7 0L233.4 393.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l160-160z"
+          fill="currentColor"
+        />
+      </svg>
+    </button>
+    <img
+      alt="XikDev"
+      class="sidebar-logo logo-collapse"
+      data-testid="sidebar-logo"
+      src="../../../public/XIK_VerdeTransparente.png"
+    />
+    <section
+      class="sider-navigation flex-column-center"
+      data-testid="sider-navigation"
+    >
+      <button
+        class="button-sidebar flex-row-center"
+        data-testid="button-sidebar"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-building "
+          data-icon="building"
+          data-prefix="far"
+          data-testid="fa-icon"
+          focusable="false"
+          role="img"
+          style="margin-right: 0px;"
+          viewBox="0 0 384 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M64 48c-8.8 0-16 7.2-16 16V448c0 8.8 7.2 16 16 16h80V400c0-26.5 21.5-48 48-48s48 21.5 48 48v64h80c8.8 0 16-7.2 16-16V64c0-8.8-7.2-16-16-16H64zM0 64C0 28.7 28.7 0 64 0H320c35.3 0 64 28.7 64 64V448c0 35.3-28.7 64-64 64H64c-35.3 0-64-28.7-64-64V64zm88 40c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H104c-8.8 0-16-7.2-16-16V104zM232 88h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H232c-8.8 0-16-7.2-16-16V104c0-8.8 7.2-16 16-16zM88 232c0-8.8 7.2-16 16-16h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H104c-8.8 0-16-7.2-16-16V232zm144-16h48c8.8 0 16 7.2 16 16v48c0 8.8-7.2 16-16 16H232c-8.8 0-16-7.2-16-16V232c0-8.8 7.2-16 16-16z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+      <button
+        class="button-sidebar flex-row-center"
+        data-testid="button-sidebar"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-user "
+          data-icon="user"
+          data-prefix="far"
+          data-testid="fa-icon"
+          focusable="false"
+          role="img"
+          style="margin-right: 0px;"
+          viewBox="0 0 448 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M304 128a80 80 0 1 0 -160 0 80 80 0 1 0 160 0zM96 128a128 128 0 1 1 256 0A128 128 0 1 1 96 128zM49.3 464H398.7c-8.9-63.3-63.3-112-129-112H178.3c-65.7 0-120.1 48.7-129 112zM0 482.3C0 383.8 79.8 304 178.3 304h91.4C368.2 304 448 383.8 448 482.3c0 16.4-13.3 29.7-29.7 29.7H29.7C13.3 512 0 498.7 0 482.3z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </section>
+    <section
+      class="sider-logout flex-column-center"
+      data-testid="sider-logout"
+    >
+      <button
+        class="button-sidebar flex-row-center"
+        data-testid="button-sidebar"
+      >
+        <svg
+          aria-hidden="true"
+          class="svg-inline--fa fa-power-off "
+          data-icon="power-off"
+          data-prefix="fas"
+          data-testid="fa-icon"
+          focusable="false"
+          role="img"
+          style="margin-right: 0px;"
+          viewBox="0 0 512 512"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z"
+            fill="currentColor"
+          />
+        </svg>
+      </button>
+    </section>
+  </div>
+</DocumentFragment>
+`;

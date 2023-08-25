@@ -1,24 +1,60 @@
-main {
-  display: flex;
-}
-
-.sidebar {
-  width: 228px;
-  height: 100vh;
-
-  background-color: var(--dark);
-
-  justify-content: space-between;
+/** Sidebar - Navigation **/
+.sider-content {
+  width: 100%;
+  height: 100%;
 }
 .sidebar-logo {
-  width: 94px;
-  margin-top: 47px;
+  margin-top: 48px;
 
-  cursor: pointer;
+  transition: all 0.2s ease-in-out;
 }
-.sidebar-bttns {
+.logo-collapse {
+  width: 0;
+}
+.logo-expand {
+  width: 46px;
+}
+.sider-navigation {
   width: 100%;
 }
-.sidebar-bttns:last-child {
-  margin-bottom: 47px;
+.sider-logout {
+  margin-bottom: 48px;
+}
+
+.nav {
+  height: 58px;
+  margin: 34px 0px 12px;
+  padding: 0px;
+
+  background-color: transparent;
+}
+
+/*? Laptop screen ?*/
+@media (min-width: 769px) {
+  .logo-collapse {
+    width: 32px;
+  }
+  .logo-expand {
+    width: 78px;
+  }
+}
+
+/** Content Layout **/
+.content-layout {
+  width: 100%;
+  height: 100vh;
+  padding: 0px 23px;
+
+  background-color: var(--dark);
+}
+::-webkit-scrollbar {
+  width: 0px;
+}
+
+/*? Laptop screen ?*/
+@media (min-width: 769px) {
+  .content-layout {
+    padding: 0px 105px;
+    overflow-y: scroll;
+  }
 }

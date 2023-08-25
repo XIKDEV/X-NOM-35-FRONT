@@ -1,1 +1,1 @@
-export * from './loginPageHooks';
+export * from './useLoginPage';
