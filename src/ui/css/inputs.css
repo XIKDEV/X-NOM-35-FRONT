@@ -1,3 +1,4 @@
+/** Global **/
 input {
   background-color: transparent;
   border: none;
@@ -9,20 +10,32 @@ input {
 input:focus {
   outline: none;
 }
-/** Laptop screen **/
+/*? Laptop screen ?*/
 @media (min-width: 769px) {
   input {
     font-size: var(--text);
   }
 }
 
-/* Login */
+/** Login **/
 .login-inputs input {
   width: 100%;
   height: 34px;
 
+  font-size: var(--text);
   color: var(--gray);
 }
 .login-inputs :first-child {
   margin-bottom: 12px;
+}
+
+/** Layout **/
+.nav input {
+  width: 100%;
+  height: 32px;
+  margin: 0px 8px;
+  border: none;
+
+  font-size: var(--text-small);
+  background-color: var(--gray);
 }

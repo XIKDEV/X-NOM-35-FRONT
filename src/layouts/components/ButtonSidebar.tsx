@@ -1,12 +1,23 @@
 import { FC } from 'react';
-import { IButtonSidebar } from '../../interfaces';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { IButtonSidebar } from '../../interfaces';
 
-export const ButtonSidebar: FC<IButtonSidebar> = ({ icon, textBttn }) => {
+export const ButtonSidebar: FC<IButtonSidebar> = ({
+  icon,
+  textBttn,
+  isCollapse,
+}) => {
   return (
-    <button className="button-sidebar">
-      <FontAwesomeIcon icon={icon} style={{ marginRight: '10px' }} />
-      {textBttn}
+    <button
+      className="button-sidebar flex-row-center"
+      data-testid="button-sidebar"
+    >
+      <FontAwesomeIcon
+        icon={icon}
+        style={{ marginRight: isCollapse ? '0px' : '10px' }}
+        data-testid="fa-icon"
+      />
+      {isCollapse ? '' : `${textBttn}`}
     </button>
   );
 };

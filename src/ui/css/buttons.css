@@ -1,3 +1,4 @@
+/** Global **/
 button {
   height: 34px;
   border: none;
@@ -34,13 +35,43 @@ button {
 }
 
 /** Layout **/
-.button-sidebar {
-  width: 100%;
+.sidebar-open-close {
+  width: 38px;
+  height: 38px;
+  position: absolute;
+  top: 0px;
+
   background-color: transparent;
 
   font-size: var(--text);
   color: var(--primary);
 }
-.sidebar-nav .button-sidebar:first-child {
-  margin-bottom: 44px;
+.button-sidebar {
+  width: 100%;
+
+  background-color: transparent;
+
+  font-size: var(--text-small);
+  color: var(--primary);
+}
+.sider-navigation .button-sidebar:first-child {
+  margin-bottom: 68px;
+}
+.nav button {
+  min-width: 32px;
+  min-height: 32px;
+
+  font-size: var(--title-small);
+}
+.nav button:first-child {
+  background-color: transparent;
+
+  color: var(--primary);
+}
+/** Laptop screen **/
+@media (min-width: 769px) {
+  .button-sidebar {
+    font-size: var(--text);
+    color: var(--primary);
+  }
 }

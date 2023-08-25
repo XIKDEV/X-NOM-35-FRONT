@@ -1,11 +1,10 @@
-import { LoginPageHooks } from '../hooks';
-
+import { useLoginPage } from '../hooks';
 import { authConstants } from '../../constants/authConstants';
 
 import '../ui/loginPage.css';
 
 export const LoginPage = () => {
-  LoginPageHooks();
+  useLoginPage();
 
   return (
     <div className="login">
