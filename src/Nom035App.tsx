@@ -1,7 +1,9 @@
+import { AppRouter } from './router';
+
 function Nom035App() {
   return (
     <>
-      <h1>X Nom-035</h1>
+      <AppRouter />
     </>
   );
 }

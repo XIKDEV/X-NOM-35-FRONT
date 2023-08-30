@@ -1,14 +1,17 @@
 import { FC } from 'react';
+import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { IButtonSidebar } from '../../interfaces';
 
 export const ButtonSidebar: FC<IButtonSidebar> = ({
+  navigationTo,
   icon,
   textBttn,
   isCollapse,
 }) => {
   return (
-    <button
+    <NavLink
+      to={navigationTo}
       className="button-sidebar flex-row-center"
       data-testid="button-sidebar"
     >
@@ -18,6 +21,6 @@ export const ButtonSidebar: FC<IButtonSidebar> = ({
         data-testid="fa-icon"
       />
       {isCollapse ? '' : `${textBttn}`}
-    </button>
+    </NavLink>
   );
 };

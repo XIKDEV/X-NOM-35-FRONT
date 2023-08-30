@@ -38,6 +38,7 @@ export interface ISideBar {
 }
 
 export interface IButtonSidebar {
+  navigationTo: string;
   textBttn: string;
   icon: IconDefinition;
   isCollapse: boolean;

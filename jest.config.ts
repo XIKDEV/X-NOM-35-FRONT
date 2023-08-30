@@ -16,6 +16,8 @@ module.exports = {
     '!src/**/index.{ts,tsx}',
     '!src/main.{ts,tsx}',
     '!src/interfaces/*.ts',
+    '!src/router/*.{ts,tsx}',
+    '!src/*/routes/*.{ts,tsx}',
   ],
   coverageReporters: ['lcov', 'text-summary'],
 };
