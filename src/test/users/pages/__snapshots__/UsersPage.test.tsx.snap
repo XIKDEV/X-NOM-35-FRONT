@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test in <UserPage /> should be match with the snapshot 1`] = `
+<DocumentFragment>
+  <div>
+    UsersPage
+  </div>
+</DocumentFragment>
+`;

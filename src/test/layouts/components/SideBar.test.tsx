@@ -1,10 +1,13 @@
 import { fireEvent, render } from '@testing-library/react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { SideBar } from '../../../layouts/components';
 
 describe('Test in <SideBar />', () => {
   test('should render correctly when isMobile is true', () => {
     const { queryByTestId } = render(
-      <SideBar isMobile={true} isCollapse={true} handleSidebar={() => {}} />
+      <Router>
+        <SideBar isMobile={true} isCollapse={true} handleSidebar={() => {}} />
+      </Router>
     );
     expect(queryByTestId('sidebar-open-close')).toBeNull();
     expect(queryByTestId('sidebar-logo')).toBeTruthy();
@@ -15,11 +18,13 @@ describe('Test in <SideBar />', () => {
   test('should toggle sidebar collapse when button is clicked', () => {
     const handleSidebar = jest.fn();
     const { getByTestId } = render(
-      <SideBar
-        isMobile={false}
-        isCollapse={true}
-        handleSidebar={handleSidebar}
-      />
+      <Router>
+        <SideBar
+          isMobile={false}
+          isCollapse={true}
+          handleSidebar={handleSidebar}
+        />
+      </Router>
     );
     const button = getByTestId('sidebar-open-close');
     fireEvent.click(button);
@@ -28,16 +33,14 @@ describe('Test in <SideBar />', () => {
 
   test('should render the logo image correctly', () => {
     const { container } = render(
-      <SideBar isMobile={false} isCollapse={true} handleSidebar={() => {}} />
+      <Router>
+        <SideBar isMobile={false} isCollapse={true} handleSidebar={() => {}} />
+      </Router>
     );
-
     const logoImage = container.querySelector('[data-testid="sidebar-logo"]');
-
     expect(logoImage).not.toBeNull();
-
     if (logoImage) {
       expect(container.contains(logoImage)).toBe(true);
-
       expect(logoImage.getAttribute('src')).toBe(
         '../../../public/XIK_VerdeTransparente.png'
       );
@@ -47,33 +50,35 @@ describe('Test in <SideBar />', () => {
 
   test('should render correctly', () => {
     const { asFragment } = render(
-      <SideBar isMobile={false} isCollapse={true} handleSidebar={() => {}} />
+      <Router>
+        <SideBar isMobile={false} isCollapse={true} handleSidebar={() => {}} />
+      </Router>
     );
-
     expect(asFragment()).toMatchSnapshot();
   });
 
   test('should toggle style of button based on isCollapse', () => {
     const handleSidebarMock = jest.fn();
-
     const { getByTestId, rerender } = render(
-      <SideBar
-        isMobile={false}
-        isCollapse={true}
-        handleSidebar={handleSidebarMock}
-      />
+      <Router>
+        <SideBar
+          isMobile={false}
+          isCollapse={true}
+          handleSidebar={handleSidebarMock}
+        />
+      </Router>
     );
-
     const button = getByTestId('sidebar-open-close');
     const buttonStyle = getComputedStyle(button);
     expect(buttonStyle.right).toBe('');
-
     rerender(
-      <SideBar
-        isMobile={false}
-        isCollapse={false}
-        handleSidebar={handleSidebarMock}
-      />
+      <Router>
+        <SideBar
+          isMobile={false}
+          isCollapse={false}
+          handleSidebar={handleSidebarMock}
+        />
+      </Router>
     );
     expect(buttonStyle.right).toBe('');
   });

@@ -47,11 +47,13 @@ export const SideBar: FC<ISideBar> = ({
         data-testid="sider-navigation"
       >
         <ButtonSidebar
+          navigationTo="/nom035/enterprises"
           textBttn={layoutConstants.enterprises}
           icon={faBuilding}
           isCollapse={isCollapse}
         />
         <ButtonSidebar
+          navigationTo="/nom035/users"
           textBttn={layoutConstants.users}
           icon={faUser}
           isCollapse={isCollapse}
@@ -63,6 +65,7 @@ export const SideBar: FC<ISideBar> = ({
         data-testid="sider-logout"
       >
         <ButtonSidebar
+          navigationTo="/auth/login"
           textBttn={layoutConstants.logout}
           icon={faPowerOff}
           isCollapse={isCollapse}
