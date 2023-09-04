@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test in <EnterpriseCard /> should be match with the snapshot 1`] = `
+<div>
+  <div
+    class="ant-card ant-card-bordered ant-card-hoverable card-enterprise br-8 css-dev-only-do-not-override-17a39f8"
+  >
+    <div
+      class="ant-card-cover"
+    >
+      <img
+        alt="logo de XikDev"
+        src="../../../../public/XIK_VerdeTransparente.png"
+      />
+    </div>
+    <div
+      class="ant-card-body"
+      style="padding: 12px;"
+    >
+      <div>
+        Mocked Meta Component
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -21,14 +21,6 @@
   margin-bottom: 48px;
 }
 
-.nav {
-  height: 58px;
-  margin: 34px 0px 12px;
-  padding: 0px;
-
-  background-color: transparent;
-}
-
 /*? Laptop screen ?*/
 @media (min-width: 769px) {
   .logo-collapse {
