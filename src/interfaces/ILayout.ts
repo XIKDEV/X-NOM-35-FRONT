@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
-import { IEnterprisesPageProps } from '.';
+import { IEnterprisesPageProps } from './IEnterprises';
 
 export interface ILayoutConstants {
   enterprises: string;

@@ -18,29 +18,32 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
   return (
     <>
       {isMobile ? (
-        <HeaderMobile
-          handleSidebar={handleSidebar}
-          data-testid="header-mobile"
-        />
-      ) : (
-        <HeaderDesktop data-testid="header-desktop" />
-      )}
-      {isMobile ? (
-        <CardMobile
-          enterpriseName={enterpriseName}
-          responsible={responsible}
-          logoEnterprise={logoEnterprise}
-          data-testid="card-mobile"
-        />
-      ) : (
-        <section className="grid-enterprises-cards">
-          <EnterpriseCard
+        <>
+          <HeaderMobile
+            handleSidebar={handleSidebar}
+            data-testid="header-mobile"
+          />
+
+          <CardMobile
             enterpriseName={enterpriseName}
             responsible={responsible}
             logoEnterprise={logoEnterprise}
-            data-testid="card-desktop"
+            data-testid="card-mobile"
           />
-        </section>
+        </>
+      ) : (
+        <>
+          <HeaderDesktop data-testid="header-desktop" />
+
+          <section className="grid-enterprises-cards">
+            <EnterpriseCard
+              enterpriseName={enterpriseName}
+              responsible={responsible}
+              logoEnterprise={logoEnterprise}
+              data-testid="card-desktop"
+            />
+          </section>
+        </>
       )}
     </>
   );
