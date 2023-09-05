@@ -9,7 +9,7 @@ exports[`Test in <EnterpriseCard /> should be match with the snapshot 1`] = `
       class="ant-card-cover"
     >
       <img
-        alt="logo de XikDev"
+        alt="XikDev logo"
         src="../../../../public/XIK_VerdeTransparente.png"
       />
     </div>

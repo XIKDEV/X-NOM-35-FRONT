@@ -75,7 +75,7 @@ exports[`Test in <EnterprisesPage /> should be match with the snapshot 1`] = `
         class="ant-card-cover"
       >
         <img
-          alt="logo de XikDev"
+          alt="Logo de XikDev"
           src="../../../public/_DSC7606.JPG"
         />
       </div>
@@ -147,7 +147,7 @@ exports[`Test in <EnterprisesPage /> should render <HeaderMobile /> 1`] = `
       style="padding: 0px; height: 100%; display: flex; align-items: center;"
     >
       <img
-        alt="logo de XikDev"
+        alt="Logo de XikDev"
         class="br-4"
         src="../../../public/_DSC7606.JPG"
       />

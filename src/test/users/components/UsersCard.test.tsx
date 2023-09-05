@@ -1,5 +1,5 @@
 import { render } from '@testing-library/react';
-import { EnterprisesCard } from '../../../enterprises/components';
+import { UsersCard } from '../../../users/components';
 
 jest.mock('antd/es/card/Meta', () => {
   return {
@@ -8,16 +8,15 @@ jest.mock('antd/es/card/Meta', () => {
   };
 });
 
-describe('Test in <EnterpriseCard />', () => {
+describe('Test in <UsersCard />', () => {
   test('should be match with the snapshot', () => {
     const props = {
       srcImage: '../../../../public/XIK_VerdeTransparente.png',
-      alt: 'XikDev logo',
-      title: 'XikDev',
-      subtitle: 'Axel Coronado',
+      alt: 'Axel Coronado',
+      title: 'Axel Coronado',
+      subtitle: 'Responsable de XikDev',
     };
-
-    const { container } = render(<EnterprisesCard {...props} />);
-    expect(container).toMatchSnapshot();
+    const { asFragment } = render(<UsersCard {...props} />);
+    expect(asFragment()).toMatchSnapshot();
   });
 });
