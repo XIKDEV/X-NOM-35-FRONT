@@ -1,8 +1,9 @@
 import { FC } from 'react';
-import { EnterpriseCard } from '../components';
+import { EnterprisesCard } from '../components';
 import { CardMobile, HeaderDesktop, HeaderMobile } from '../../ui/components';
 import { useScreenSize } from '../../hooks';
 import { IEnterprisesPageProps } from '../../interfaces';
+import { enterprisesConstants } from '../../constants';
 import '../ui/enterprisesPage.css';
 
 export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
@@ -25,9 +26,10 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
           />
 
           <CardMobile
-            enterpriseName={enterpriseName}
-            responsible={responsible}
-            logoEnterprise={logoEnterprise}
+            srcImage={logoEnterprise}
+            alt={`${enterprisesConstants.logoFrom} ${enterpriseName}`}
+            title={enterpriseName}
+            subtitle={`${enterprisesConstants.responsibleEnterprise} ${responsible}`}
             data-testid="card-mobile"
           />
         </>
@@ -36,10 +38,11 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
           <HeaderDesktop data-testid="header-desktop" />
 
           <section className="grid-enterprises-cards">
-            <EnterpriseCard
-              enterpriseName={enterpriseName}
-              responsible={responsible}
-              logoEnterprise={logoEnterprise}
+            <EnterprisesCard
+              srcImage={logoEnterprise}
+              alt={`${enterprisesConstants.logoFrom} ${enterpriseName}`}
+              title={enterpriseName}
+              subtitle={`${enterprisesConstants.responsibleEnterprise} ${responsible}`}
               data-testid="card-desktop"
             />
           </section>

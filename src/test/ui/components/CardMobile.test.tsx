@@ -11,9 +11,10 @@ jest.mock('antd/es/card/Meta', () => {
 describe('Test in <CardMobile />', () => {
   test('should be match with the snapshot', () => {
     const props = {
-      enterpriseName: 'XikDev',
-      responsible: 'Axel Coronado',
-      logoEnterprise: '../../../../public/XIK_VerdeTransparente.png',
+      title: 'XikDev',
+      subtitle: 'Axel Coronado',
+      srcImage: '../../../../public/XIK_VerdeTransparente.png',
+      alt: 'XikDev logo',
     };
 
     const { asFragment } = render(<CardMobile {...props} />);
