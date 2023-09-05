@@ -6,9 +6,14 @@ yarn-debug.log*
 yarn-error.log*
 lerna-debug.log*
 .pnpm-debug.log*
-src/test/auth/pages/__snapshots__/
 src/test/__snapshots__/
-src/test/layouts/__snapshots__
+src/test/auth/pages/__snapshots__/
+src/test/enterprises/components/__snapshots__/
+src/test/enterprises/pages/__snapshots__/
+src/test/layouts/__snapshots__/
+src/test/components/__snapshots__/
+src/test/ui/components/__snapshots__/
+src/test/users/pages/__snapshots__/
 yarn.lock
 .scannerwork/
 

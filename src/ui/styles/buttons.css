@@ -57,21 +57,38 @@ button {
 .sider-navigation .button-sidebar:first-child {
   margin-bottom: 68px;
 }
-.nav button {
-  min-width: 32px;
-  min-height: 32px;
-
-  font-size: var(--title-small);
-}
-.nav button:first-child {
-  background-color: transparent;
-
-  color: var(--primary);
-}
-/** Laptop screen **/
+/*? Laptop screen ?*/
 @media (min-width: 769px) {
   .button-sidebar {
     font-size: var(--text);
     color: var(--primary);
   }
+}
+
+/** Headers **/
+.header-mobile button {
+  min-width: 32px;
+  min-height: 32px;
+
+  font-size: var(--title-small);
+}
+.header-mobile button:first-child {
+  background-color: transparent;
+
+  color: var(--primary);
+}
+.header-desktop button {
+  height: 100%;
+
+  font-size: var(--subtitle);
+  color: var(--gray);
+}
+.header-desktop button:first-child {
+  aspect-ratio: 1/1;
+
+  background: transparent;
+}
+.header-desktop button:last-child {
+  width: 49px;
+  margin-left: 12px;
 }

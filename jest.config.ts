@@ -18,6 +18,10 @@ module.exports = {
     '!src/interfaces/*.ts',
     '!src/router/*.{ts,tsx}',
     '!src/*/routes/*.{ts,tsx}',
+    '!src/*/ui/styles.ts',
+    '!src/*/styles/*.ts',
+    '!src/Nom035App.{ts,tsx}',
   ],
   coverageReporters: ['lcov', 'text-summary'],
+  type: 'module',
 };

@@ -19,8 +19,8 @@ body {
   --text-small: 12px;
   --subtext-small: 10px;
 
-  --title: 48px;
-  --subtitle: 34px;
+  --title: 38px;
+  --subtitle: 24px;
   --text: 16px;
   --subtext: 12px;
 
@@ -47,10 +47,16 @@ body {
 .justify-start {
   justify-content: start;
 }
+.justify-end {
+  justify-content: end;
+}
 .space-between {
   justify-content: space-between;
 }
 
 .br-4 {
   border-radius: 4px;
+}
+.br-8 {
+  border-radius: 8px;
 }
