@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { LayoutMainPage } from '../../layouts/pages';
 import { UsersPage } from '../../users/pages';
-import { EnterprisesPage } from '../../enterprises/pages';
+import { EnterpriseInfoPage, EnterprisesPage } from '../../enterprises/pages';
 
 export const HomeRoutes = () => {
   return (
@@ -9,6 +9,10 @@ export const HomeRoutes = () => {
       <Route
         path="/nom035/enterprises"
         element={<LayoutMainPage page={EnterprisesPage} />}
+      />
+      <Route
+        path="/nom035/enterprise"
+        element={<LayoutMainPage page={EnterpriseInfoPage} />}
       />
       <Route
         path="/nom035/users"

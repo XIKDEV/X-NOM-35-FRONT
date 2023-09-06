@@ -9,6 +9,12 @@ button {
   color: var(--gray);
   cursor: pointer;
 }
+.edit-bttn {
+  color: var(--editColor);
+}
+.delete-bttn {
+  color: var(--deleteColor);
+}
 
 /*? Laptop screen ?*/
 @media (min-width: 769px) {
@@ -91,4 +97,31 @@ button {
 .header-desktop button:last-child {
   width: 49px;
   margin-left: 12px;
+}
+
+/** Enterprise Info **/
+.header-title button {
+  width: 36px;
+  height: 36px;
+  background: none;
+
+  font-size: 16px;
+}
+.enteprise-contract-container button {
+  width: calc(height);
+  height: 100%;
+
+  background: none;
+
+  font-size: 18px;
+  color: var(--primary);
+}
+/*? Laptop screen ?*/
+@media (min-width: 769px) {
+  .header-title button {
+    font-size: 18px;
+  }
+  .enteprise-contract-container button {
+    font-size: 24px;
+  }
 }

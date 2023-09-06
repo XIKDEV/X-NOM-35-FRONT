@@ -24,4 +24,5 @@ module.exports = {
   ],
   coverageReporters: ['lcov', 'text-summary'],
   type: 'module',
+  setupFiles: ['jest-matchmedia-mock'],
 };
