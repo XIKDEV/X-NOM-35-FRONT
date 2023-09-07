@@ -1,14 +1,12 @@
 import { Drawer, Layout } from 'antd';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBars, faPlus } from '@fortawesome/free-solid-svg-icons';
 import { SideBar } from '../components';
 import { useLayoutMainPage } from '../hooks';
 import { useScreenSize } from '../../hooks';
 import { ILayoutMainPageProps } from '../../interfaces';
-import { drawerStyles, siderStyles } from '../ui';
+import { drawerStyles, layoutStyle, siderStyles } from '../ui';
 import '../ui/layouts.css';
 
-const { Content, Header, Sider } = Layout;
+const { Content, Sider } = Layout;
 
 export const LayoutMainPage: React.FC<ILayoutMainPageProps> = ({
   page: Page,
@@ -24,7 +22,7 @@ export const LayoutMainPage: React.FC<ILayoutMainPageProps> = ({
   const sideBarComponent = <SideBar {...sideBarProps} />;
 
   return (
-    <Layout style={{ maxHeight: '100vh' }}>
+    <Layout style={layoutStyle}>
       {isMobile ? (
         <Drawer
           open={!isCollapse}
@@ -51,20 +49,7 @@ export const LayoutMainPage: React.FC<ILayoutMainPageProps> = ({
       )}
 
       <Content className="content-layout">
-        {isMobile ? (
-          <Header className="nav flex-row-center space-between">
-            <button onClick={handleSidebar} data-testid="sidebar-toggle-button">
-              <FontAwesomeIcon icon={faBars} />
-            </button>
-            <input className="br-4" type="text" placeholder="Búsqueda rápida" />
-            <button>
-              <FontAwesomeIcon icon={faPlus} />
-            </button>
-          </Header>
-        ) : (
-          <></>
-        )}
-        <Page />
+        <Page handleSidebar={handleSidebar} />
       </Content>
     </Layout>
   );

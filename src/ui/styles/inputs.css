@@ -1,8 +1,7 @@
 /** Global **/
 input {
-  background-color: transparent;
+  background: transparent;
   border: none;
-  border-bottom: 1px solid var(--primary);
 
   font-size: var(--text-small);
   caret-color: var(--primary);
@@ -20,22 +19,25 @@ input:focus {
 /** Login **/
 .login-inputs input {
   width: 100%;
-  height: 34px;
+  height: 32px;
+  border-bottom: 1px solid var(--primary);
 
-  font-size: var(--text);
   color: var(--gray);
 }
 .login-inputs :first-child {
   margin-bottom: 12px;
 }
 
-/** Layout **/
-.nav input {
+/** Headers **/
+.header-mobile input,
+.header-desktop-input {
+  background: var(--gray);
+}
+.header-mobile input {
   width: 100%;
   height: 32px;
   margin: 0px 8px;
-  border: none;
-
-  font-size: var(--text-small);
-  background-color: var(--gray);
+}
+.header-desktop-input {
+  width: min(428px, 50%);
 }

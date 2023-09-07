@@ -1,0 +1,6 @@
+.grid-enterprises-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 214px);
+  gap: 68px 24px;
+  justify-content: space-between;
+}

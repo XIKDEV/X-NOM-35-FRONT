@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test in <UsersCard /> should be match with the snapshot 1`] = `
+<DocumentFragment>
+  <div
+    class="ant-card ant-card-bordered card-user br-4 css-dev-only-do-not-override-17a39f8"
+  >
+    <div
+      class="ant-card-body"
+      style="padding: 0px; height: 100%; display: flex; align-items: center;"
+    >
+      <img
+        alt="Axel Coronado"
+        class="br-4"
+        src="../../../../public/XIK_VerdeTransparente.png"
+      />
+      <div>
+        Mocked Meta Component
+      </div>
+    </div>
+  </div>
+</DocumentFragment>
+`;

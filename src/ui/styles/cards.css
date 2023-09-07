@@ -1,0 +1,42 @@
+.card-mobile,
+.card-enterprise,
+.card-user {
+  border: none;
+  background: var(--gray);
+}
+.card-mobile,
+.card-labels {
+  overflow: hidden;
+}
+.card-mobile {
+  height: 62px;
+  margin-bottom: 22px;
+}
+.card-mobile img,
+.card-enterprise img,
+.card-user img {
+  aspect-ratio: 1/1;
+  object-fit: contain;
+}
+.card-mobile img,
+.card-user img {
+  height: 100%;
+}
+.card-labels {
+  margin: 0px;
+
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.card-enterprise {
+  width: 214px;
+}
+.card-enterprise img {
+  width: 100%;
+}
+
+.card-user {
+  width: 354px;
+  height: 98px;
+}

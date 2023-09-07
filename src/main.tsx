@@ -1,16 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-
-import './ui/css/global.css';
-import './ui/css/inputs.css';
-import './ui/css/buttons.css';
-
-import { LayoutMainPage } from './layouts/pages';
-
-import { EnterprisesPage } from './enterprises/pages';
+import { BrowserRouter } from 'react-router-dom';
+import Nom035App from './Nom035App';
+import './ui/styles/global.css';
+import './ui/styles/inputs.css';
+import './ui/styles/buttons.css';
+import './ui/styles/cards.css';
+import './ui/styles/headers.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <LayoutMainPage page={EnterprisesPage} />
+    <BrowserRouter>
+      <Nom035App />
+    </BrowserRouter>
   </React.StrictMode>
 );

@@ -1,4 +1,11 @@
 {
-  "conventionalCommits.scopes": ["Project", "Login", "test"],
+  "conventionalCommits.scopes": [
+    "Project",
+    "Login",
+    "test",
+    "Router-Dom",
+    "Enterprises",
+    "Users"
+  ],
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }

@@ -1,5 +1,6 @@
 import { FC } from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
+import { IEnterprisesPageProps } from './IEnterprises';
 
 export interface ILayoutConstants {
   enterprises: string;
@@ -8,7 +9,11 @@ export interface ILayoutConstants {
 }
 
 export interface ILayoutMainPageProps {
-  page: FC;
+  page: FC<IEnterprisesPageProps>;
+}
+
+export interface ILayoutStyle {
+  maxHeight: string;
 }
 
 export interface IDrawerStyles {
@@ -38,6 +43,7 @@ export interface ISideBar {
 }
 
 export interface IButtonSidebar {
+  navigationTo: string;
   textBttn: string;
   icon: IconDefinition;
   isCollapse: boolean;

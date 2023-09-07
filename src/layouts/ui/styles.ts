@@ -1,4 +1,8 @@
-import { IDrawerStyles, ISiderStyles } from '../../interfaces';
+import { IDrawerStyles, ILayoutStyle, ISiderStyles } from '../../interfaces';
+
+export const layoutStyle: ILayoutStyle = {
+  maxHeight: '100vh',
+};
 
 export const drawerStyles: IDrawerStyles = {
   placement: 'left',

@@ -1,0 +1,15 @@
+.header-mobile,
+.header-desktop {
+  padding: 0px;
+
+  background: transparent;
+}
+.header-mobile {
+  height: 58px;
+  margin: 34px 0px 12px;
+}
+.header-desktop {
+  width: 100%;
+  height: 31px;
+  margin: 47px 0px 64px;
+}

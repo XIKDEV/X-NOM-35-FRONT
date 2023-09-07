@@ -36,9 +36,10 @@ exports[`Test in <SideBar /> should render correctly 1`] = `
       class="sider-navigation flex-column-center"
       data-testid="sider-navigation"
     >
-      <button
+      <a
         class="button-sidebar flex-row-center"
         data-testid="button-sidebar"
+        href="/nom035/enterprises"
       >
         <svg
           aria-hidden="true"
@@ -57,10 +58,11 @@ exports[`Test in <SideBar /> should render correctly 1`] = `
             fill="currentColor"
           />
         </svg>
-      </button>
-      <button
+      </a>
+      <a
         class="button-sidebar flex-row-center"
         data-testid="button-sidebar"
+        href="/nom035/users"
       >
         <svg
           aria-hidden="true"
@@ -79,15 +81,16 @@ exports[`Test in <SideBar /> should render correctly 1`] = `
             fill="currentColor"
           />
         </svg>
-      </button>
+      </a>
     </section>
     <section
       class="sider-logout flex-column-center"
       data-testid="sider-logout"
     >
-      <button
+      <a
         class="button-sidebar flex-row-center"
         data-testid="button-sidebar"
+        href="/auth/login"
       >
         <svg
           aria-hidden="true"
@@ -106,7 +109,7 @@ exports[`Test in <SideBar /> should render correctly 1`] = `
             fill="currentColor"
           />
         </svg>
-      </button>
+      </a>
     </section>
   </div>
 </DocumentFragment>
