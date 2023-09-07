@@ -11,6 +11,8 @@ jest.mock('antd/es/card/Meta', () => {
 describe('Test in <HeadEnterpriseInfo />', () => {
   test('should be match with the snapshot', () => {
     const data = {
+      img: '../../../../public/XIK_VerdeTransparente.png',
+      alt: 'XikDev logo',
       enterpriseName: 'XikDev',
     };
     const { asFragment } = render(<HeadEnterpriseInfo {...data} />);

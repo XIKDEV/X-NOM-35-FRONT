@@ -2,7 +2,6 @@ import { FC } from 'react';
 import { Card, List } from 'antd';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFileArrowDown } from '@fortawesome/free-solid-svg-icons';
-import { useScreenSize } from '../../hooks';
 import { IContractsListProps } from '../../interfaces';
 import {
   bodyContractStyle,
@@ -11,9 +10,7 @@ import {
   listItemContractsStyle,
 } from '../ui';
 
-export const ContractsList: FC<IContractsListProps> = ({ data }) => {
-  const { isMobile } = useScreenSize();
-
+export const ContractsList: FC<IContractsListProps> = ({ data, isMobile }) => {
   return (
     <List
       style={isMobile ? listContractsStyleMobile : listContractsStyleDesktop}

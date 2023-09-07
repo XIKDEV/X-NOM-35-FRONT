@@ -21,6 +21,7 @@ export const EnterpriseInfoPage: FC<IEnterpriseInfoPageProps> = ({
   // //! TODO: temp info
   const enterpriseInfo = {
     enterpriseName: 'XikDev',
+    img: '../../../public/_DSC7606.JPG',
     addres: 'Agustín Lara #3251 Col. Miramar, Tijuana, Baja California, México',
     goals: 'Goals',
     activity: 'Industria Tec',
@@ -45,7 +46,11 @@ export const EnterpriseInfoPage: FC<IEnterpriseInfoPageProps> = ({
   return (
     <>
       {isMobile ? <HeaderMobile handleSidebar={handleSidebar} /> : <></>}
-      <HeadEnterpriseInfo enterpriseName={enterpriseInfo.enterpriseName} />
+      <HeadEnterpriseInfo
+        img={enterpriseInfo.img}
+        alt={enterpriseInfo.enterpriseName}
+        enterpriseName={enterpriseInfo.enterpriseName}
+      />
       {isMobile ? (
         <>
           <InfoEnterprise
@@ -55,7 +60,10 @@ export const EnterpriseInfoPage: FC<IEnterpriseInfoPageProps> = ({
             mainActivity={enterpriseInfo.mainActivity}
             quantityEmployees={enterpriseInfo.quantityEmployees}
           />
-          <ContractsList data={enterpriseInfo.contractsData} />
+          <ContractsList
+            data={enterpriseInfo.contractsData}
+            isMobile={isMobile}
+          />
         </>
       ) : (
         <Content style={enterpriseContentStyle}>
@@ -66,7 +74,10 @@ export const EnterpriseInfoPage: FC<IEnterpriseInfoPageProps> = ({
             mainActivity={enterpriseInfo.mainActivity}
             quantityEmployees={enterpriseInfo.quantityEmployees}
           />
-          <ContractsList data={enterpriseInfo.contractsData} />
+          <ContractsList
+            data={enterpriseInfo.contractsData}
+            isMobile={isMobile}
+          />
         </Content>
       )}
     </>

@@ -23,6 +23,8 @@ export interface IEnterpriseContentStyle {
 }
 
 export interface IHeadEnterpriseInfoProps {
+  img: string;
+  alt: string;
   enterpriseName: string;
 }
 
@@ -36,6 +38,7 @@ export interface IInfoEnterpriseProps {
 
 export interface IContractsListProps {
   data: IContract[];
+  isMobile: boolean;
 }
 
 export interface IContract {

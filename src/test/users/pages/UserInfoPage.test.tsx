@@ -1,15 +1,16 @@
 import { render } from '@testing-library/react';
-import { ContractsList } from '../../../enterprises/components';
+import { UserInfoPage } from '../../../users/pages';
 import * as useScreenSizeModule from '../../../hooks/useScreenSize';
 
 jest.mock('antd/es/card/Meta', () => {
   return {
     __esModule: true,
-    default: () => <div>Mocked Meta Component</div>,
+    default: () => <div>MockedMetaComponent</div>,
   };
 });
 
-describe('Test in <ContractsList />', () => {
+const mockHandleSidebar = jest.fn();
+describe('Test in <UserInfoPage />', () => {
   beforeAll(() => {
     window.matchMedia = jest.fn().mockImplementation((query) => ({
       matches: query.includes('(max-width: 767px)'),
@@ -18,22 +19,19 @@ describe('Test in <ContractsList />', () => {
     }));
   });
 
-  const data = [
-    { contract: 'Contract 1', date: '2023-09-05' },
-    { contract: 'Contract 2', date: '2023-09-06' },
-  ];
-
-  test('should be match with the snapshot', () => {
+  test('should be match with the snapshot in mobile view', () => {
     const { asFragment } = render(
-      <ContractsList data={data} isMobile={false} />
+      <UserInfoPage handleSidebar={mockHandleSidebar} />
     );
     expect(asFragment()).toMatchSnapshot();
   });
 
-  test('should be match with the snapshot in mobile view', () => {
+  test('should be match with the snapshot', () => {
     const spy = jest.spyOn(useScreenSizeModule, 'useScreenSize');
     spy.mockReturnValue({ width: 320, height: 480, isMobile: true });
-    const { container } = render(<ContractsList data={data} isMobile={true} />);
+    const { container } = render(
+      <UserInfoPage handleSidebar={mockHandleSidebar} />
+    );
     expect(container).toMatchSnapshot();
     spy.mockRestore();
   });
