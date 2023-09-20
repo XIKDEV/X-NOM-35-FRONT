@@ -44,6 +44,7 @@ export interface ISideBar {
 
 export interface IButtonSidebar {
   navigationTo: string;
+  onClick: () => void;
   textBttn: string;
   icon: IconDefinition;
   isCollapse: boolean;

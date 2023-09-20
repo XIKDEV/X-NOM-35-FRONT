@@ -1,4 +1,6 @@
 export interface IUsersConstants {
+  titlePage: string;
+
   userIs: string;
 }
 

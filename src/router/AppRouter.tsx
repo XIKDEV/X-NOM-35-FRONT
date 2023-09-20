@@ -1,12 +1,16 @@
+import { useSelector } from 'react-redux';
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { AuthRoutes, HomeRoutes } from '../auth/routes';
+import { useAppRouter } from './hooks';
+import { RootState } from '../interfaces';
 
 export const AppRouter = () => {
-  //! TODO: Variable temporal hasta agregar sistema Login
-  const authenticated = 'auth';
+  useAppRouter();
+  const { auth } = useSelector((state: RootState) => state.auth);
+
   return (
     <Routes>
-      {authenticated === 'auth' ? (
+      {auth === 'auth' ? (
         <Route path="/*" element={<HomeRoutes />} />
       ) : (
         <Route

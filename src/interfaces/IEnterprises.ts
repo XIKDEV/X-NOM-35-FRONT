@@ -1,4 +1,6 @@
 export interface IEnterprisesConstants {
+  titlePage: string;
+
   logoFrom: string;
   responsibleEnterprise: string;
 }

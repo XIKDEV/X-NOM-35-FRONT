@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { EnterprisesCard } from '../components';
 import { CardMobile, HeaderDesktop, HeaderMobile } from '../../ui/components';
 import { useScreenSize } from '../../hooks';
+import { useEnterprisesPage } from '../hooks';
 import { IEnterprisesPageProps } from '../../interfaces';
 import { enterprisesConstants } from '../../constants';
 import '../ui/enterprisesPage.css';
@@ -9,6 +10,7 @@ import '../ui/enterprisesPage.css';
 export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
   handleSidebar,
 }) => {
+  useEnterprisesPage();
   const { isMobile } = useScreenSize();
 
   //! TODO: temp info
