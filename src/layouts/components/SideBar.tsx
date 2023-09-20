@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBuilding, faUser } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -15,6 +16,13 @@ export const SideBar: FC<ISideBar> = ({
   isCollapse,
   handleSidebar,
 }) => {
+  const dispatch: CallableFunction = useDispatch();
+  const handleLogout = () => {
+    import('../../store/auth').then(({ setAuthLogout }) => {
+      dispatch(setAuthLogout());
+    });
+  };
+
   return (
     <div className="sider-content flex-column-center space-between">
       {isMobile ? (
@@ -48,12 +56,14 @@ export const SideBar: FC<ISideBar> = ({
       >
         <ButtonSidebar
           navigationTo="/nom035/enterprises"
+          onClick={() => {}}
           textBttn={layoutConstants.enterprises}
           icon={faBuilding}
           isCollapse={isCollapse}
         />
         <ButtonSidebar
           navigationTo="/nom035/users"
+          onClick={() => {}}
           textBttn={layoutConstants.users}
           icon={faUser}
           isCollapse={isCollapse}
@@ -65,7 +75,8 @@ export const SideBar: FC<ISideBar> = ({
         data-testid="sider-logout"
       >
         <ButtonSidebar
-          navigationTo="/auth/login"
+          navigationTo=""
+          onClick={handleLogout}
           textBttn={layoutConstants.logout}
           icon={faPowerOff}
           isCollapse={isCollapse}

@@ -24,16 +24,18 @@ button {
 }
 
 /** Login **/
-.login form button {
-  width: calc(100% - 50px);
+.login-button {
+  width: 100%;
+  border: none;
   margin-bottom: 45px;
+
+  background: var(--primary);
 
   font-size: var(--text-small);
 }
 /*? Laptop screen ?*/
 @media (min-width: 769px) {
-  .login form button {
-    width: calc(100% - 96px);
+  .login-button {
     margin: 0px;
 
     font-size: var(--text);

@@ -1,12 +1,14 @@
 import { FC } from 'react';
 import { UsersCard } from '../components';
 import { CardMobile, HeaderDesktop, HeaderMobile } from '../../ui/components';
+import { useUsersPage } from '../hooks';
 import { useScreenSize } from '../../hooks';
 import { IUsersPageProps } from '../../interfaces';
 import { usersConstants } from '../../constants/usersConstants';
 import '../ui/usersPage.css';
 
 export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
+  useUsersPage();
   const { isMobile } = useScreenSize();
 
   //! TODO: temp info

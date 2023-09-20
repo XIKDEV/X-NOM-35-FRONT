@@ -1,4 +1,6 @@
 import React from 'react';
+import { Provider } from 'react-redux';
+import { store } from './store/store';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
 import Nom035App from './Nom035App';
@@ -10,8 +12,10 @@ import './ui/styles/headers.css';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <BrowserRouter>
-      <Nom035App />
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+        <Nom035App />
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>
 );

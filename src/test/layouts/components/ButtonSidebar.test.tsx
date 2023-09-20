@@ -12,6 +12,7 @@ describe('Test in <ButtonSidebar />', () => {
       <Router>
         <ButtonSidebar
           navigationTo="/nom035/enterprises"
+          onClick={() => {}}
           icon={faBuilding}
           textBttn="Enterprises"
           isCollapse={false}
@@ -31,6 +32,7 @@ describe('Test in <ButtonSidebar />', () => {
       <Router>
         <ButtonSidebar
           navigationTo="/nom035/enterprises"
+          onClick={() => {}}
           icon={faBuilding}
           textBttn="Enterprises"
           isCollapse={true}

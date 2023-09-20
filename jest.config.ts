@@ -3,7 +3,15 @@ module.exports = {
   testEnvironment: 'jsdom',
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
   transform: {
-    '^.+\\.(ts|tsx)$': 'ts-jest',
+    '^.+\\.(ts|tsx)$': [
+      'ts-jest',
+      {
+        diagnostics: {
+          // TODO: Unit test with .env, delete this ignoreCodes
+          ignoreCodes: [1343, 1058],
+        },
+      },
+    ],
   },
   moduleNameMapper: {
     '\\.(css|less|scss|sass)$': 'identity-obj-proxy',
@@ -21,8 +29,9 @@ module.exports = {
     '!src/*/ui/styles.ts',
     '!src/*/styles/*.ts',
     '!src/Nom035App.{ts,tsx}',
+    '!src/api/routes.ts',
+    '!src/test/fixtures/*.ts',
   ],
   coverageReporters: ['lcov', 'text-summary'],
-  type: 'module',
   setupFiles: ['jest-matchmedia-mock'],
 };
