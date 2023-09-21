@@ -5,5 +5,6 @@ export * from './ILayout';
 export * from './IStore';
 export * from './IStoreAuth';
 export * from './IStoreRequest';
+export * from './IStoreUsers';
 export * from './IUi';
 export * from './IUsers';

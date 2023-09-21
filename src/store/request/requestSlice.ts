@@ -5,7 +5,7 @@ const initialState: IRequestSliceInitialState = {
   isLoading: false,
   isSave: false,
   isError: false,
-  message: '',
+  isMessage: '',
 };
 
 export const requestSlice = createSlice({
@@ -15,26 +15,35 @@ export const requestSlice = createSlice({
     setLoading: (state) => {
       state.isLoading = true;
     },
+    setStopLoading: (state) => {
+      state.isLoading = initialState.isLoading;
+    },
     setSave: (state, { payload }) => {
       state.isLoading = initialState.isLoading;
       state.isSave = true;
-      state.message = payload;
+      state.isMessage = payload;
     },
     setCleanSave: (state) => {
       state.isSave = initialState.isSave;
-      state.message = initialState.message;
+      state.isMessage = initialState.isMessage;
     },
     setError: (state, { payload }) => {
       state.isLoading = initialState.isLoading;
       state.isError = true;
-      state.message = payload;
+      state.isMessage = payload;
     },
     setCleanError: (state) => {
       state.isError = initialState.isError;
-      state.message = initialState.message;
+      state.isMessage = initialState.isMessage;
     },
   },
 });
 
-export const { setLoading, setSave, setCleanSave, setError, setCleanError } =
-  requestSlice.actions;
+export const {
+  setLoading,
+  setStopLoading,
+  setSave,
+  setCleanSave,
+  setError,
+  setCleanError,
+} = requestSlice.actions;

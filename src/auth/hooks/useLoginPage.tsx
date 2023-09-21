@@ -1,12 +1,16 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { notification } from 'antd';
+import { useScreenSize } from '../../hooks';
 import { NotificationType, RootState } from '../../interfaces';
 import { authConstants } from '../../constants';
 export const useLoginPage = () => {
-  const { isError, message } = useSelector((state: RootState) => state.request);
+  const { isError, isMessage } = useSelector(
+    (state: RootState) => state.request
+  );
   const dispatch: CallableFunction = useDispatch();
   const [api, contextHolder] = notification.useNotification();
+  const { isMobile } = useScreenSize();
 
   const changeDocumentTitle = (title: string) => {
     document.title = title;
@@ -19,7 +23,8 @@ export const useLoginPage = () => {
     const openNotification: (type: NotificationType) => void = (type) => {
       api[type]({
         message: 'Ups... algo salió mal',
-        description: message,
+        description: isMessage,
+        style: { width: isMobile ? '80%' : '' },
       });
     };
     if (isError) {
@@ -28,7 +33,7 @@ export const useLoginPage = () => {
     import('../../store/request').then(({ setCleanError }) => {
       dispatch(setCleanError());
     });
-  }, [isError, dispatch, message, api]);
+  }, [isError, dispatch, isMessage, api, isMobile]);
 
   return { contextHolder, changeDocumentTitle };
 };

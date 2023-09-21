@@ -2,6 +2,7 @@ export interface IUsersConstants {
   titlePage: string;
 
   userIs: string;
+  roleIs: string;
 }
 
 export interface IUsersPageProps {
