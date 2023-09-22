@@ -1,6 +1,6 @@
-import { getAdapter, sublink, content } from '../../api';
+import { getAdapter, content, sublink } from '../../api';
 
-export const getUsersList = () => {
+export const getEnterprisesList = () => {
   return async (dispatch: CallableFunction) => {
     import('../request/requestSlice').then(({ setLoading }) => {
       dispatch(setLoading());
@@ -13,9 +13,9 @@ export const getUsersList = () => {
     };
 
     try {
-      const { data } = await getAdapter(sublink.user, header);
-      import('./usersSlice').then(({ setUsers }) => {
-        dispatch(setUsers(data));
+      const { data } = await getAdapter(sublink.enterprise, header);
+      import('./enterprisesSlice').then(({ setEnterprises }) => {
+        dispatch(setEnterprises(data));
       });
       import('../request').then(({ setStopLoading }) => {
         dispatch(setStopLoading());
