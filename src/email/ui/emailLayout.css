@@ -1,0 +1,74 @@
+.email-layout {
+  width: 50%;
+  border-radius: 4px;
+  padding: 48px 24px;
+  box-sizing: border-box;
+
+  background: var(--gray);
+}
+.email-layout img {
+  width: min(50%, 154px);
+}
+.email-layout h1 {
+  font-size: var(--title);
+  color: var(--primary);
+}
+.email-text p {
+  font-size: var(--text);
+}
+.email-text .password {
+  margin: 16px 0px;
+}
+.email-text .password p {
+  margin: 0px;
+}
+.email-text .password p:first-child {
+  margin-bottom: 12px;
+  font-size: var(--subtitle-small);
+  color: var(--primary);
+}
+.email-text .password p:last-child {
+  font-size: var(--title-small);
+}
+.email-text a {
+  padding: 12px 24px;
+  margin: 16px 0px;
+  border-radius: 4px;
+
+  background-color: var(--primary);
+
+  color: var(--gray);
+  text-decoration: none;
+}
+.email-text p span {
+  font-size: var(--subtext-small);
+}
+
+/** Laptop screen **/
+@media (min-width: 769px) {
+  .email-layout {
+    width: min(50%, 800px);
+    border-radius: 8px;
+  }
+  .email-text .password {
+    margin: 32px 0px;
+  }
+  .email-text .password p {
+    margin: 0px;
+  }
+  .email-text .password p:first-child {
+    margin-bottom: 12px;
+    font-size: var(--subtitle);
+    color: var(--primary);
+  }
+  .email-text .password p:last-child {
+    font-size: var(--title);
+  }
+  .email-text a {
+    padding: 18px 32px;
+    border-radius: 8px;
+  }
+  .email-text p span {
+    font-size: var(--subtext);
+  }
+}
