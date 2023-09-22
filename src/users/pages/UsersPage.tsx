@@ -5,7 +5,7 @@ import { CardMobile, HeaderDesktop, HeaderMobile } from '../../ui/components';
 import { useUsersPage } from '../hooks';
 import { useScreenSize } from '../../hooks';
 import { IUsersPageProps, RootState } from '../../interfaces';
-import { usersConstants } from '../../constants/usersConstants';
+import { usersConstants } from '../../constants';
 import '../ui/usersPage.css';
 
 export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
