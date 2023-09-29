@@ -6,6 +6,7 @@ import { NotificationType, RootState } from '../../interfaces';
 import { enterprisesConstants } from '../../constants';
 
 export const useEnterprisesPage = () => {
+  const { enterprises } = useSelector((state: RootState) => state.enterprises);
   const { isError, isMessage } = useSelector(
     (state: RootState) => state.request
   );
@@ -48,5 +49,5 @@ export const useEnterprisesPage = () => {
     });
   }, [isError, dispatch, isMessage, api, isMobile]);
 
-  return { contextHolder, changeDocumentTitle };
+  return { enterprises, isMobile, contextHolder, changeDocumentTitle };
 };

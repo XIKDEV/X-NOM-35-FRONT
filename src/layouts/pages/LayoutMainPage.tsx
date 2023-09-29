@@ -1,7 +1,6 @@
 import { Drawer, Layout } from 'antd';
 import { SideBar } from '../components';
 import { useLayoutMainPage } from '../hooks';
-import { useScreenSize } from '../../hooks';
 import { ILayoutMainPageProps } from '../../interfaces';
 import { drawerStyles, layoutStyle, siderStyles } from '../ui';
 import '../ui/layouts.css';
@@ -11,14 +10,9 @@ const { Content, Sider } = Layout;
 export const LayoutMainPage: React.FC<ILayoutMainPageProps> = ({
   page: Page,
 }) => {
-  const { isCollapse, handleSidebar } = useLayoutMainPage();
-  const { isMobile } = useScreenSize();
+  const { isMobile, isCollapse, handleSidebar, sideBarProps } =
+    useLayoutMainPage();
 
-  const sideBarProps = {
-    isMobile,
-    isCollapse,
-    handleSidebar,
-  };
   const sideBarComponent = <SideBar {...sideBarProps} />;
 
   return (

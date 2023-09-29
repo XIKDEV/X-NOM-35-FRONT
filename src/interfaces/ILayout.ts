@@ -36,13 +36,13 @@ export interface ISiderStyles {
   backgroundColor: string;
 }
 
-export interface ISideBar {
+export interface ISideBarProps {
   isMobile: boolean;
   isCollapse: boolean;
   handleSidebar: () => void;
 }
 
-export interface IButtonSidebar {
+export interface IButtonSidebarProps {
   navigationTo: string;
   onClick: () => void;
   textBttn: string;

@@ -1,17 +1,13 @@
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
 import { UsersCard } from '../components';
-import { CardMobile, HeaderDesktop, HeaderMobile } from '../../ui/components';
+import { CardMobile, HeaderPage } from '../../ui/components';
 import { useUsersPage } from '../hooks';
-import { useScreenSize } from '../../hooks';
-import { IUsersPageProps, RootState } from '../../interfaces';
+import { IUsersPageProps } from '../../interfaces';
 import { usersConstants } from '../../constants';
 import '../ui/usersPage.css';
 
 export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
-  const { contextHolder } = useUsersPage();
-  const { users } = useSelector((state: RootState) => state.users);
-  const { isMobile } = useScreenSize();
+  const { users, isMobile, contextHolder } = useUsersPage();
 
   //! TODO: temp info
   const iconLogo = '../../../public/XIK_VerdeTransparente.png';
@@ -19,13 +15,14 @@ export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
   return (
     <>
       {contextHolder}
+
+      <HeaderPage
+        handleSidebar={handleSidebar}
+        data-testid="header-desktop"
+        formAdd="addUser"
+      />
       {isMobile ? (
         <>
-          <HeaderMobile
-            handleSidebar={handleSidebar}
-            data-testid="header-mobile"
-          />
-
           {users.map((user) => (
             <CardMobile
               key={user.id}
@@ -39,8 +36,6 @@ export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
         </>
       ) : (
         <>
-          <HeaderDesktop data-testid="header-desktop" />
-
           <section className="grid-users-cards">
             {users.map((user) => (
               <UsersCard
