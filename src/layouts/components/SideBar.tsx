@@ -8,10 +8,10 @@ import {
   faPowerOff,
 } from '@fortawesome/free-solid-svg-icons';
 import { ButtonSidebar } from '.';
-import { ISideBar } from '../../interfaces';
+import { ISideBarProps } from '../../interfaces';
 import { layoutConstants } from '../../constants';
 
-export const SideBar: FC<ISideBar> = ({
+export const SideBar: FC<ISideBarProps> = ({
   isMobile,
   isCollapse,
   handleSidebar,
@@ -56,14 +56,14 @@ export const SideBar: FC<ISideBar> = ({
       >
         <ButtonSidebar
           navigationTo="/nom035/enterprises"
-          onClick={() => {}}
+          onClick={isMobile ? handleSidebar : () => {}}
           textBttn={layoutConstants.enterprises}
           icon={faBuilding}
           isCollapse={isCollapse}
         />
         <ButtonSidebar
           navigationTo="/nom035/users"
-          onClick={() => {}}
+          onClick={isMobile ? handleSidebar : () => {}}
           textBttn={layoutConstants.users}
           icon={faUser}
           isCollapse={isCollapse}

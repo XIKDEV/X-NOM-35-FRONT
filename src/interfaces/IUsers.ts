@@ -5,6 +5,13 @@ export interface IUsersConstants {
   roleIs: string;
 }
 
+export interface IUsersPlaceholders {
+  name: string;
+  lastname: string;
+  email: string;
+  role: string;
+}
+
 export interface IUsersPageProps {
   handleSidebar: () => void;
 }
@@ -38,4 +45,11 @@ export interface IDataItem {
 export interface IInfoUserListItemStyle {
   color: string;
   borderColor: string;
+}
+
+export interface IFormFieldUsers {
+  name: string;
+  lastname: string;
+  email: string;
+  role: string;
 }

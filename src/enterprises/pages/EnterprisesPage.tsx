@@ -1,19 +1,15 @@
 import { FC } from 'react';
-import { useSelector } from 'react-redux';
 import { EnterprisesCard } from '../components';
-import { CardMobile, HeaderDesktop, HeaderMobile } from '../../ui/components';
-import { useScreenSize } from '../../hooks';
+import { CardMobile, HeaderPage } from '../../ui/components';
 import { useEnterprisesPage } from '../hooks';
-import { IEnterprisesPageProps, RootState } from '../../interfaces';
+import { IEnterprisesPageProps } from '../../interfaces';
 import { enterprisesConstants } from '../../constants';
 import '../ui/enterprisesPage.css';
 
 export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
   handleSidebar,
 }) => {
-  const { contextHolder } = useEnterprisesPage();
-  const { enterprises } = useSelector((state: RootState) => state.enterprises);
-  const { isMobile } = useScreenSize();
+  const { enterprises, isMobile, contextHolder } = useEnterprisesPage();
 
   // TODO: Info temp
   const logoEnterprise = '../../../public/_DSC7606.JPG';
@@ -21,13 +17,14 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
   return (
     <>
       {contextHolder}
+
+      <HeaderPage
+        handleSidebar={handleSidebar}
+        data-testid="header-desktop"
+        formAdd="addEnterprise"
+      />
       {isMobile ? (
         <>
-          <HeaderMobile
-            handleSidebar={handleSidebar}
-            data-testid="header-mobile"
-          />
-
           {enterprises.map((enterprise) => (
             <CardMobile
               key={enterprise.enterpriseId}
@@ -41,8 +38,6 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
         </>
       ) : (
         <>
-          <HeaderDesktop data-testid="header-desktop" />
-
           <section className="grid-enterprises-cards">
             {enterprises.map((enterprise) => (
               <EnterprisesCard

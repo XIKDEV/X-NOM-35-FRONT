@@ -5,6 +5,7 @@ import { useScreenSize } from '../../hooks';
 import { NotificationType, RootState } from '../../interfaces';
 import { usersConstants } from '../../constants';
 export const useUsersPage = () => {
+  const { users } = useSelector((state: RootState) => state.users);
   const { isError, isMessage } = useSelector(
     (state: RootState) => state.request
   );
@@ -47,5 +48,5 @@ export const useUsersPage = () => {
     });
   }, [isError, dispatch, isMessage, api, isMobile]);
 
-  return { contextHolder, changeDocumentTitle };
+  return { users, isMobile, contextHolder, changeDocumentTitle };
 };

@@ -5,7 +5,8 @@
     "test",
     "Router-Dom",
     "Enterprises",
-    "Users"
+    "Users",
+    "Forms"
   ],
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }
