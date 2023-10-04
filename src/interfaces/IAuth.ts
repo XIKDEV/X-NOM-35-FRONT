@@ -10,7 +10,7 @@ export interface IAuthConstants {
   passwordWarning: string;
 }
 
-export interface IFormFieldType {
+export interface IFormFieldLogin {
   email?: string;
   password?: string;
 }
@@ -33,5 +33,3 @@ export interface IRulesInputPassword {
   required: boolean;
   message: string;
 }
-
-export type NotificationType = 'success' | 'info' | 'warning' | 'error';

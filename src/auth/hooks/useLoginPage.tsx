@@ -4,6 +4,7 @@ import { notification } from 'antd';
 import { useScreenSize } from '../../hooks';
 import { NotificationType, RootState } from '../../interfaces';
 import { authConstants } from '../../constants';
+
 export const useLoginPage = () => {
   const { isError, isMessage } = useSelector(
     (state: RootState) => state.request

@@ -1,81 +1,45 @@
-import { Form, Input, Select } from 'antd';
-import { FormsButtons } from '../../ui/components';
-import { IFormFieldUsers } from '../../interfaces';
+import { Form } from 'antd';
+import {
+  FormItemInput,
+  FormItemSelect,
+  FormsButtons,
+} from '../../ui/components';
+import { useFormUsers } from '../hooks/useFormUsers';
 import { usersPlaceholders } from '../../constants';
-import { inputFormsStyle } from '../../ui/styles';
 
 export const FormUser = () => {
-  const handleSubmit = (values: IFormFieldUsers) => {
-    console.log(values);
-  };
+  const { modules, handleSubmit } = useFormUsers();
+
   return (
     <Form name="userForm" initialValues={{}} onFinish={handleSubmit}>
-      <Form.Item<IFormFieldUsers> name="name">
-        <Input
-          autoComplete="off"
-          placeholder={usersPlaceholders.name}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldUsers> name="lastname">
-        <Input
-          autoComplete="off"
-          placeholder={usersPlaceholders.lastname}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldUsers> name="email">
-        <Input
-          autoComplete="off"
-          placeholder={usersPlaceholders.email}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldUsers> name="role">
-        <Select
-          showSearch
-          placeholder={usersPlaceholders.role}
-          className="select-form"
-          style={inputFormsStyle}
-          dropdownStyle={{
-            background: 'var(--gray)',
-          }}
-          optionFilterProp="children"
-          filterOption={(input, option) =>
-            (option?.label ?? '').includes(input)
-          }
-          filterSort={(optionA, optionB) =>
-            (optionA?.label ?? '')
-              .toLowerCase()
-              .localeCompare((optionB?.label ?? '').toLowerCase())
-          }
-          //TODO: data temporal
-          options={[
-            {
-              value: '1',
-              label: 'Desarrollador',
-            },
-            {
-              value: '2',
-              label: 'Admin',
-            },
-            {
-              value: '3',
-              label: 'Admin Empresa',
-            },
-            {
-              value: '4',
-              label: 'Empleado',
-            },
-          ]}
-        />
-      </Form.Item>
+      <FormItemInput
+        name="name"
+        placeholder={usersPlaceholders.name}
+        rules={{
+          pattern:
+            /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+          message: 'Ingrese nombre válido',
+        }}
+      />
+      <FormItemInput
+        name="lastname"
+        placeholder={usersPlaceholders.lastname}
+        rules={{
+          pattern:
+            /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+          message: 'Ingrese apellido válido',
+        }}
+      />
+      <FormItemInput
+        name="email"
+        placeholder={usersPlaceholders.email}
+        rules={{ type: 'email', message: 'Ingrese email válido' }}
+      />
+      <FormItemSelect
+        name="id_role"
+        placeholder={usersPlaceholders.role}
+        options={modules.role}
+      />
 
       <Form.Item>
         <FormsButtons />

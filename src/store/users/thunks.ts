@@ -1,8 +1,9 @@
-import { getAdapter, sublink, content } from '../../api';
+import { getAdapter, sublink, content, postAdapter } from '../../api';
+import { IFormFieldUsers } from '../../interfaces';
 
 export const getUsersList = () => {
   return async (dispatch: CallableFunction) => {
-    import('../request/requestSlice').then(({ setLoading }) => {
+    import('../request').then(({ setLoading }) => {
       dispatch(setLoading());
     });
 
@@ -20,6 +21,34 @@ export const getUsersList = () => {
       import('../request').then(({ setStopLoading }) => {
         dispatch(setStopLoading());
       });
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    } catch (err: any) {
+      console.clear();
+      import('../request').then(({ setErrorInRequest }) => {
+        dispatch(setErrorInRequest(err.response.data.message));
+      });
+    }
+  };
+};
+export const postUser = (data: IFormFieldUsers) => {
+  return async (dispatch: CallableFunction) => {
+    import('../request').then(({ setLoading }) => {
+      dispatch(setLoading());
+    });
+
+    const token = localStorage.getItem('token');
+    const header = {
+      auth: `Bearer ${token}`,
+    };
+
+    try {
+      const { message } = await postAdapter(sublink.user, data, header);
+
+      import('../request').then(({ setStopLoading, setSaveInfo }) => {
+        dispatch(setStopLoading());
+        dispatch(setSaveInfo(message));
+      });
+
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.clear();

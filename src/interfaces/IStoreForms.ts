@@ -1,4 +1,4 @@
-export interface IStoreForms {
+export interface IStoreFormsInitialState {
   isDrawerForm: boolean;
   isForm: FormType;
 }

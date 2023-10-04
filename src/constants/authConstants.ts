@@ -12,7 +12,7 @@ export const authConstants: IAuthConstants = {
   placeholderPassword: 'Contraseña',
 
   emailWarning: 'Ingresa tu email',
-  emailWrongFormat: 'Por favor, ingrese un email válido',
+  emailWrongFormat: 'Ingrese email válido',
   passwordWarning: 'Ingresa tu contraseña',
 };
 

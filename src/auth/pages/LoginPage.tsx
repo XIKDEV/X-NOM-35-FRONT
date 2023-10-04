@@ -3,7 +3,7 @@ import { Button, Form, Input } from 'antd';
 import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 import { useScreenSize } from '../../hooks';
 import { useLoginPage } from '../hooks';
-import { IFormFieldType, ILoginData, RootState } from '../../interfaces';
+import { IFormFieldLogin, RootState } from '../../interfaces';
 import {
   authConstants,
   rulesInputEmail,
@@ -18,7 +18,7 @@ export const LoginPage = () => {
   const { isMobile } = useScreenSize();
   const dispatch: CallableFunction = useDispatch();
 
-  const handleLogin = (values: ILoginData) => {
+  const handleLogin = (values: IFormFieldLogin) => {
     import('../../store/auth').then(({ setAuthLogin }) => {
       dispatch(setAuthLogin(values));
     });
@@ -40,7 +40,8 @@ export const LoginPage = () => {
             alt="XikDev"
           />
           <div className="login-inputs">
-            <Form.Item<IFormFieldType>
+            {/* TODO: utilizar funcional component FormItemInput */}
+            <Form.Item<IFormFieldLogin>
               name="email"
               rules={[
                 rulesInputEmail,
@@ -55,7 +56,7 @@ export const LoginPage = () => {
               />
             </Form.Item>
 
-            <Form.Item<IFormFieldType>
+            <Form.Item<IFormFieldLogin>
               name="password"
               style={{ marginBottom: '0px' }}
               rules={[rulesInputPassword]}
