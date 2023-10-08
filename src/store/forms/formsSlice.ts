@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IStoreForms } from '../../interfaces';
+import { IStoreFormsInitialState } from '../../interfaces';
 
-const initialState: IStoreForms = {
+const initialState: IStoreFormsInitialState = {
   isDrawerForm: false,
   isForm: 'none',
 };

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IStoreUsers } from '../../interfaces';
+import { IStoreUsersInitialState } from '../../interfaces';
 
-const initialState: IStoreUsers = {
+const initialState: IStoreUsersInitialState = {
   users: [],
 };
 

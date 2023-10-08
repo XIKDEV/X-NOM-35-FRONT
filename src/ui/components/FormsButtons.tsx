@@ -1,14 +1,9 @@
-import { useDispatch } from 'react-redux';
 import { Button } from 'antd';
 import { formsButtonsStyles } from '../styles';
+import { useFormsButtons } from '../hooks';
 
 export const FormsButtons = () => {
-  const dispatch: CallableFunction = useDispatch();
-  const handleCloseDrawerForm = () => {
-    import('../../store/forms').then(({ setCloseDrawerForm }) => {
-      dispatch(setCloseDrawerForm());
-    });
-  };
+  const { isLoading, handleCloseDrawerForm } = useFormsButtons();
 
   return (
     <div className="forms-buttons">
@@ -17,6 +12,7 @@ export const FormsButtons = () => {
         className="forms-buttons-button"
         style={formsButtonsStyles}
         onClick={handleCloseDrawerForm}
+        disabled={isLoading}
       >
         Cancelar
       </Button>
@@ -26,6 +22,7 @@ export const FormsButtons = () => {
         className="forms-buttons-button"
         style={formsButtonsStyles}
         onClick={() => {}}
+        loading={isLoading}
       >
         Confirmar
       </Button>

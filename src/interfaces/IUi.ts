@@ -48,6 +48,8 @@ export interface ICardMetaStyle {
   };
 }
 
+export type NotificationType = 'success' | 'info' | 'warning' | 'error';
+
 export interface IFormsDrawerStyles {
   background: string;
 }
@@ -78,3 +80,44 @@ export interface IInputFormsStyle {
 export interface IFormsButtonsStyles {
   color: string;
 }
+
+export interface IFormItemInput {
+  name: NameType;
+  rules?: object;
+  placeholder: string;
+}
+
+export interface IFormItemSelect {
+  name: NameType;
+  rules?: object;
+  placeholder: string;
+  options: IOptions[];
+}
+
+export interface IOptions {
+  value: string;
+  label: string;
+}
+
+export type NameType =
+  | 'name'
+  | 'lastname'
+  | 'email'
+  | 'id_role'
+  | 'business_name'
+  | 'comercial_name'
+  | 'legal_representative'
+  | 'RFC'
+  | 'street'
+  | 'exterior_number'
+  | 'interior_number'
+  | 'suburb'
+  | 'postal_code'
+  | 'state'
+  | 'municipality'
+  | 'country'
+  | 'enterprise_type'
+  | 'turn_enterprise'
+  | 'tellphone'
+  | 'email'
+  | 'file';

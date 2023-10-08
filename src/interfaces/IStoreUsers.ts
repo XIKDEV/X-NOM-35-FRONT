@@ -1,4 +1,4 @@
-export interface IStoreUsers {
+export interface IStoreUsersInitialState {
   users: IUsers[];
 }
 export interface IUsers {

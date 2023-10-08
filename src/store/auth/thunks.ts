@@ -1,9 +1,8 @@
 import { getAdapter, postAdapter } from '../../api';
 import { content, sublink } from '../../api/routes';
+import { IFormFieldLogin } from '../../interfaces';
 
-import { ILoginData } from '../../interfaces';
-
-export const setAuthLogin = (values: ILoginData) => {
+export const setAuthLogin = (values: IFormFieldLogin) => {
   return async (dispatch: CallableFunction) => {
     import('./authSlice').then(({ setCheckingAuth }) => {
       dispatch(setCheckingAuth());
@@ -14,13 +13,19 @@ export const setAuthLogin = (values: ILoginData) => {
     };
 
     try {
-      const { data } = await postAdapter(sublink.auth, values, header);
+      const { success, data } = await postAdapter(sublink.auth, values, header);
       const { token, user } = data;
       localStorage.setItem('token', token);
 
       import('./authSlice').then(({ setLogin }) => {
         dispatch(setLogin(user));
       });
+
+      if (success) {
+        import('../catalogs').then(({ getCatalogs }) => {
+          dispatch(getCatalogs());
+        });
+      }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.clear();
@@ -35,6 +40,9 @@ export const setAuthLogin = (values: ILoginData) => {
 };
 export const setAuthLogout = () => {
   return async (dispatch: CallableFunction) => {
+    import('../catalogs').then(({ setCleanCatalogsOptions }) => {
+      dispatch(setCleanCatalogsOptions());
+    });
     localStorage.removeItem('token');
     import('./authSlice').then(({ setLogout }) => {
       dispatch(setLogout());
@@ -50,14 +58,18 @@ export const validateJwt = () => {
     };
 
     try {
-      const { data } = await getAdapter(sublink.validJwt, header);
+      const { success, data } = await getAdapter(sublink.validJwt, header);
       const { token, user } = data;
-
       localStorage.setItem('token', token);
-
       import('./authSlice').then(({ setLogin }) => {
         dispatch(setLogin(user));
       });
+
+      if (success) {
+        import('../catalogs').then(({ getCatalogs }) => {
+          dispatch(getCatalogs());
+        });
+      }
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.clear();
@@ -74,6 +86,9 @@ export const noTokenInLocalStorage = () => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         // @ts-ignore
         if (!window.token) {
+          import('../catalogs').then(({ setCleanCatalogsOptions }) => {
+            dispatch(setCleanCatalogsOptions());
+          });
           localStorage.removeItem('token');
           import('./authSlice').then(({ setLogout }) => {
             dispatch(setLogout());

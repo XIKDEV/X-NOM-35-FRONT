@@ -6,7 +6,7 @@ import { NotificationType, RootState } from '../../interfaces';
 import { usersConstants } from '../../constants';
 export const useUsersPage = () => {
   const { users } = useSelector((state: RootState) => state.users);
-  const { isError, isMessage } = useSelector(
+  const { isSave, isError, isMessage } = useSelector(
     (state: RootState) => state.request
   );
   const dispatch: CallableFunction = useDispatch();
@@ -24,14 +24,20 @@ export const useUsersPage = () => {
     import('../../store/users').then(({ getUsersList }) => {
       dispatch(getUsersList());
     });
+    if (isSave) {
+      import('../../store/users').then(({ getUsersList }) => {
+        dispatch(getUsersList());
+      });
+    }
 
     return () => {
       import('../../store/users').then(({ setCleanUsers }) => {
         dispatch(setCleanUsers());
       });
     };
-  }, [dispatch]);
+  }, [dispatch, isSave]);
 
+  // TODO: Refactorizar a un custom hook las notificaciones
   useEffect(() => {
     const openNotification: (type: NotificationType) => void = (type) => {
       api[type]({
@@ -47,6 +53,25 @@ export const useUsersPage = () => {
       dispatch(setCleanError());
     });
   }, [isError, dispatch, isMessage, api, isMobile]);
+
+  useEffect(() => {
+    const openNotification: (type: NotificationType) => void = (type) => {
+      api[type]({
+        message: 'Proceso exitoso',
+        description: isMessage,
+        style: { width: isMobile ? '80%' : '' },
+      });
+    };
+    if (isSave) {
+      import('../../store/forms').then(({ setCloseDrawerForm }) => {
+        dispatch(setCloseDrawerForm());
+      });
+      openNotification('success');
+    }
+    import('../../store/request').then(({ setCleanSave }) => {
+      dispatch(setCleanSave());
+    });
+  }, [isSave, dispatch, isMessage, api, isMobile]);
 
   return { users, isMobile, contextHolder, changeDocumentTitle };
 };

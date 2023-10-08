@@ -1,4 +1,4 @@
-export interface IStoreEnterprises {
+export interface IStoreEnterprisesInitialState {
   enterprises: IEnterprises[];
 }
 

@@ -51,7 +51,7 @@ export interface IIDPermission {
   description: string;
 }
 
-export interface ILoginData {
-  email: string;
-  password: string;
-}
+// export interface ILoginData {
+//   email: string;
+//   password: string;
+// }
