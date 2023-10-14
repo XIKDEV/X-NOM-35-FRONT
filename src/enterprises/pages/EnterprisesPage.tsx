@@ -11,10 +11,11 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
 }) => {
   const { enterprises, isMobile, contextHolder } = useEnterprisesPage();
 
-  // TODO: Info temp
+  //! TODO: Info temp
   const logoEnterprise = '../../../public/_DSC7606.JPG';
 
   return (
+    //! TODO: Arreglar grid
     <>
       {contextHolder}
 
@@ -27,10 +28,10 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
         <>
           {enterprises.map((enterprise) => (
             <CardMobile
-              key={enterprise.enterpriseId}
+              key={enterprise.id}
               srcImage={logoEnterprise}
-              alt={`${enterprisesConstants.logoFrom} ${enterprise.bussinessName}`}
-              title={enterprise.bussinessName}
+              alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
+              title={enterprise.business_name}
               subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
               data-testid="card-mobile"
             />
@@ -41,10 +42,10 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
           <section className="grid-enterprises-cards">
             {enterprises.map((enterprise) => (
               <EnterprisesCard
-                key={enterprise.enterpriseId}
+                key={enterprise.id}
                 srcImage={logoEnterprise}
-                alt={`${enterprisesConstants.logoFrom} ${enterprise.bussinessName}`}
-                title={enterprise.bussinessName}
+                alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
+                title={enterprise.business_name}
                 subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
                 data-testid="card-desktop"
               />

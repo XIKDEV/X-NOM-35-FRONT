@@ -9,14 +9,14 @@ import { inputFormsStyle } from '../styles';
 
 export const FormItemSelect: FC<IFormItemSelect> = ({
   name,
-  rules = {},
+  rules = [],
   placeholder,
   options,
 }) => {
   return (
     <Form.Item<IFormFieldUsers | IFormFieldEnterprises>
       name={name}
-      rules={[rules, { required: true, message: 'Campo obligatorio' }]}
+      rules={[...rules, { required: true, message: 'Campo obligatorio' }]}
     >
       <Select
         showSearch

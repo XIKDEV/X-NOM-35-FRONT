@@ -83,16 +83,26 @@ export interface IFormsButtonsStyles {
 
 export interface IFormItemInput {
   name: NameType;
-  rules?: object;
+  rules?: IRules[];
   placeholder: string;
 }
 
 export interface IFormItemSelect {
   name: NameType;
-  rules?: object;
+  rules?: IRules[];
   placeholder: string;
   options: IOptions[];
 }
+
+export interface IRules {
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  pattern?: any;
+  max?: number;
+  type?: RulesType;
+  message: string;
+}
+
+export type RulesType = 'string' | 'number' | 'boolean' | 'url' | 'email';
 
 export interface IOptions {
   value: string;
@@ -113,8 +123,8 @@ export type NameType =
   | 'interior_number'
   | 'suburb'
   | 'postal_code'
-  | 'state'
-  | 'municipality'
+  | 'id_state'
+  | 'id_city'
   | 'country'
   | 'enterprise_type'
   | 'turn_enterprise'

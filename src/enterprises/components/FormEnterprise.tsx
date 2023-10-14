@@ -1,172 +1,90 @@
-import { Form, Input } from 'antd';
-import { FormsButtons } from '../../ui/components';
-import { IFormFieldEnterprises } from '../../interfaces';
-import { enterprisesPlaceholders } from '../../constants';
-import { inputFormsStyle } from '../../ui/styles';
+import { Form } from 'antd';
+import {
+  FormItemInput,
+  FormItemSelectCoordinate,
+  FormItemUpload,
+  FormsButtons,
+} from '../../ui/components';
+import { useFormEnterprise } from '../hooks';
 
 export const FormEnterprise = () => {
-  const handleSubmit = (values: IFormFieldEnterprises) => {
-    console.log(values);
-  };
+  const { modules, handleSubmit } = useFormEnterprise();
+
   return (
+    // TODO: Optimizar reglas de formulario
     <Form name="userForm" initialValues={{}} onFinish={handleSubmit}>
-      <Form.Item<IFormFieldEnterprises> name="business_name">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.bussinessName}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldEnterprises> name="comercial_name">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.comercialName}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldEnterprises> name="legal_representative">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.legalRepresentative}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldEnterprises> name="RFC">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.RFC}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldEnterprises> name="street">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.street}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
+      <FormItemInput name="business_name" placeholder="Nombre de la empresa" />
+      <FormItemInput name="comercial_name" placeholder="Nombre comercial" />
+      <FormItemInput
+        name="legal_representative"
+        placeholder="Representante legal"
+        rules={[
+          {
+            pattern:
+              /^[a-zA-ZÀ-ÿ\u00f1\u00d1]+(\s*[a-zA-ZÀ-ÿ\u00f1\u00d1]*)*[a-zA-ZÀ-ÿ\u00f1\u00d1]+$/,
+            message: 'Ingrese nombre válido',
+          },
+        ]}
+      />
+      <FormItemInput
+        name="RFC"
+        placeholder="RFC"
+        rules={[
+          {
+            pattern:
+              /^([A-ZÑ&]{3,4}) ?(?:- ?)?(\d{2}(?:0[1-9]|1[0-2])(?:0[1-9]|[12]\d|3[01])) ?(?:- ?)?([A-Z\d]{2})([A\d])$/,
+            message: 'Ingrese RFC válido',
+          },
+        ]}
+      />
+      <FormItemInput name="street" placeholder="Calle" />
       <div className="two-columns-forms">
-        <Form.Item<IFormFieldEnterprises> name="exterior_number">
-          <Input
-            autoComplete="off"
-            placeholder={enterprisesPlaceholders.exteriorNumber}
-            className="input-form"
-            style={inputFormsStyle}
-          />
-        </Form.Item>
-
-        <Form.Item<IFormFieldEnterprises> name="interior_number">
-          <Input
-            autoComplete="off"
-            placeholder={enterprisesPlaceholders.interiorNumber}
-            className="input-form"
-            style={inputFormsStyle}
-          />
-        </Form.Item>
-      </div>
-
-      <div className="two-columns-forms">
-        <Form.Item<IFormFieldEnterprises> name="suburb">
-          <Input
-            autoComplete="off"
-            placeholder={enterprisesPlaceholders.suburb}
-            className="input-form"
-            style={inputFormsStyle}
-          />
-        </Form.Item>
-
-        <Form.Item<IFormFieldEnterprises> name="postal_code">
-          <Input
-            autoComplete="off"
-            placeholder={enterprisesPlaceholders.postalCode}
-            className="input-form"
-            style={inputFormsStyle}
-          />
-        </Form.Item>
+        <FormItemInput
+          name="exterior_number"
+          placeholder="Número exterior"
+          rules={[{ pattern: /^[0-9]+/, message: 'Ingrese número válido' }]}
+        />
+        <FormItemInput name="interior_number" placeholder="Número interior" />
       </div>
       <div className="two-columns-forms">
-        <Form.Item<IFormFieldEnterprises> name="state">
-          <Input
-            autoComplete="off"
-            placeholder={enterprisesPlaceholders.state}
-            className="input-form"
-            style={inputFormsStyle}
-          />
-        </Form.Item>
-
-        <Form.Item<IFormFieldEnterprises> name="municipality">
-          <Input
-            autoComplete="off"
-            placeholder={enterprisesPlaceholders.municipality}
-            className="input-form"
-            style={inputFormsStyle}
-          />
-        </Form.Item>
+        <FormItemInput name="suburb" placeholder="Colonia" />
+        <FormItemInput
+          name="postal_code"
+          placeholder="Código postal"
+          rules={[{ pattern: /^[0-9]+/, message: 'Ingrese número válido' }]}
+        />
       </div>
-
-      <Form.Item<IFormFieldEnterprises> name="country">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.country}
-          className="input-form"
-          style={inputFormsStyle}
+      <div className="two-columns-forms">
+        <FormItemSelectCoordinate
+          firstData={modules.states}
+          firstName="id_state"
+          secondName="id_city"
+          firstPlaceholder="Estado"
+          secondPlaceholder="Ciudad"
         />
-      </Form.Item>
+      </div>
+      <FormItemInput name="country" placeholder="País" />
+      <FormItemInput name="enterprise_type" placeholder="Tipo de empresa" />
+      <FormItemInput name="turn_enterprise" placeholder="Giro de la empresa" />
+      <FormItemInput
+        name="tellphone"
+        placeholder="Teléfono"
+        rules={[
+          { max: 10, message: 'Ingrese teléfono válido' },
+          { pattern: /^[0-9]+/, message: 'Ingrese teléfono válido' },
+        ]}
+      />
+      <FormItemInput
+        name="email"
+        placeholder="Email"
+        rules={[{ type: 'email', message: 'Ingrese email válido' }]}
+      />
 
-      <Form.Item<IFormFieldEnterprises> name="enterprise_type">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.enterpriseType}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldEnterprises> name="turn_enterprise">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.turnEnterprise}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldEnterprises> name="tellphone">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.tellphone}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldEnterprises> name="email">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.email}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
-
-      <Form.Item<IFormFieldEnterprises> name="file">
-        <Input
-          autoComplete="off"
-          placeholder={enterprisesPlaceholders.file}
-          className="input-form"
-          style={inputFormsStyle}
-        />
-      </Form.Item>
+      <FormItemUpload
+        name="file"
+        accept=".png,.jpeg,.jpg"
+        buttonText="Subir imagen"
+      />
 
       <Form.Item>
         <FormsButtons />

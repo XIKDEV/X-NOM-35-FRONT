@@ -94,12 +94,13 @@ export interface IFormFieldEnterprises {
   interior_number: string;
   suburb: string;
   postal_code: string;
-  state: string;
-  municipality: string;
+  id_state: string;
+  id_city: string;
   country: string;
   enterprise_type: string;
   turn_enterprise: string;
   tellphone: string;
   email: string;
-  file: string;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  file: any;
 }

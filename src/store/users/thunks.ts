@@ -30,6 +30,7 @@ export const getUsersList = () => {
     }
   };
 };
+
 export const postUser = (data: IFormFieldUsers) => {
   return async (dispatch: CallableFunction) => {
     import('../request').then(({ setLoading }) => {
