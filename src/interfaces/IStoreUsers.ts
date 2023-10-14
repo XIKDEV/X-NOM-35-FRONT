@@ -6,5 +6,5 @@ export interface IUsers {
   name: string;
   lastname: string;
   email: string;
-  id_role: string;
+  id_role: string | number;
 }

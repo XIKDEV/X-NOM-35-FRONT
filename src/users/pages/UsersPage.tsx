@@ -13,6 +13,7 @@ export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
   const iconLogo = '../../../public/XIK_VerdeTransparente.png';
 
   return (
+    //! TODO: Arreglar grid
     <>
       {contextHolder}
 
