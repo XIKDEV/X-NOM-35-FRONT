@@ -24,16 +24,18 @@ button {
 }
 
 /** Login **/
-.login form button {
-  width: calc(100% - 50px);
+.login-button {
+  width: 100%;
+  border: none;
   margin-bottom: 45px;
+
+  background: var(--primary);
 
   font-size: var(--text-small);
 }
 /*? Laptop screen ?*/
 @media (min-width: 769px) {
-  .login form button {
-    width: calc(100% - 96px);
+  .login-button {
     margin: 0px;
 
     font-size: var(--text);
@@ -72,31 +74,32 @@ button {
 }
 
 /** Headers **/
-.header-mobile button {
+.header-page button {
   min-width: 32px;
   min-height: 32px;
 
   font-size: var(--title-small);
 }
-.header-mobile button:first-child {
-  background-color: transparent;
-
-  color: var(--primary);
-}
-.header-desktop button {
-  height: 100%;
-
-  font-size: var(--subtitle);
-  color: var(--gray);
-}
-.header-desktop button:first-child {
+.header-page button:first-child {
+  margin-right: 12px;
   aspect-ratio: 1/1;
 
   background: transparent;
+
+  color: var(--primary);
 }
-.header-desktop button:last-child {
+.header-page button:last-child {
   width: 49px;
   margin-left: 12px;
+  color: var(--gray);
+}
+/** Laptop screen **/
+@media (min-width: 769px) {
+  .header-page button {
+    height: 100%;
+
+    font-size: var(--subtitle);
+  }
 }
 
 /** Enterprise Info **/
@@ -123,5 +126,29 @@ button {
   }
   .enteprise-contract-container button {
     font-size: 24px;
+  }
+}
+
+/** Forms **/
+.forms-buttons {
+  margin-top: 32px;
+
+  display: flex;
+  flex-direction: column;
+}
+.forms-buttons .forms-buttons-button {
+  border: none;
+  background: var(--primary);
+  color: var(--gray);
+}
+.forms-buttons .forms-buttons-button:first-child {
+  margin-bottom: 24px;
+}
+/** Laptop screen **/
+@media (min-width: 769px) {
+  .forms-buttons {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 12px;
   }
 }

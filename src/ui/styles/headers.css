@@ -1,15 +1,17 @@
-.header-mobile,
-.header-desktop {
+.header-page {
   padding: 0px;
 
   background: transparent;
 }
-.header-mobile {
+.header-page {
   height: 58px;
   margin: 34px 0px 12px;
 }
-.header-desktop {
-  width: 100%;
-  height: 31px;
-  margin: 47px 0px 64px;
+/** Laptop screen **/
+@media (min-width: 769px) {
+  .header-page {
+    width: 100%;
+    height: 31px;
+    margin: 47px 0px 64px;
+  }
 }

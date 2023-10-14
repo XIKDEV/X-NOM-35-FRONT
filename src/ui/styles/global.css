@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box; /* Hack para ajustar dimensiones en cualquier pantalla */
+  font-family: var(--text-font);
 }
 body {
   width: 100%;
@@ -26,6 +27,10 @@ body {
 
   --title-font: 'Arvo', serif;
   --text-font: 'Nunito', sans-serif;
+}
+
+h1 {
+  font-family: var(--title-font);
 }
 
 .center-content {

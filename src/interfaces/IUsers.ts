@@ -1,5 +1,15 @@
 export interface IUsersConstants {
+  titlePage: string;
+
   userIs: string;
+  roleIs: string;
+}
+
+export interface IUsersPlaceholders {
+  name: string;
+  lastname: string;
+  email: string;
+  role: string;
 }
 
 export interface IUsersPageProps {
@@ -35,4 +45,11 @@ export interface IDataItem {
 export interface IInfoUserListItemStyle {
   color: string;
   borderColor: string;
+}
+
+export interface IFormFieldUsers {
+  name: string;
+  lastname: string;
+  email: string;
+  id_role: string | number;
 }

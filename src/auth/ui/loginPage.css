@@ -7,8 +7,7 @@
   background: no-repeat center url('../../../public/subtle-prism.png');
   background-size: cover;
 }
-
-form {
+.login-form {
   width: calc(100% - 60px);
   height: 68%;
   border-radius: 4px;
@@ -40,7 +39,7 @@ form {
     height: 186px;
     margin: 0px;
   }
-  form {
+  .login-form {
     width: min(50%, 576px);
     height: 100vh;
     border-radius: 0px;

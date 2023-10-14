@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { EnterprisesCard } from '../components';
-import { CardMobile, HeaderDesktop, HeaderMobile } from '../../ui/components';
-import { useScreenSize } from '../../hooks';
+import { CardMobile, HeaderPage } from '../../ui/components';
+import { useEnterprisesPage } from '../hooks';
 import { IEnterprisesPageProps } from '../../interfaces';
 import { enterprisesConstants } from '../../constants';
 import '../ui/enterprisesPage.css';
@@ -9,42 +9,47 @@ import '../ui/enterprisesPage.css';
 export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
   handleSidebar,
 }) => {
-  const { isMobile } = useScreenSize();
+  const { enterprises, isMobile, contextHolder } = useEnterprisesPage();
 
-  //! TODO: temp info
-  const enterpriseName = 'XikDev';
-  const responsible = 'Axel Coronado Zepeda';
+  //! TODO: Info temp
   const logoEnterprise = '../../../public/_DSC7606.JPG';
 
   return (
+    //! TODO: Arreglar grid
     <>
+      {contextHolder}
+
+      <HeaderPage
+        handleSidebar={handleSidebar}
+        data-testid="header-desktop"
+        formAdd="addEnterprise"
+      />
       {isMobile ? (
         <>
-          <HeaderMobile
-            handleSidebar={handleSidebar}
-            data-testid="header-mobile"
-          />
-
-          <CardMobile
-            srcImage={logoEnterprise}
-            alt={`${enterprisesConstants.logoFrom} ${enterpriseName}`}
-            title={enterpriseName}
-            subtitle={`${enterprisesConstants.responsibleEnterprise} ${responsible}`}
-            data-testid="card-mobile"
-          />
+          {enterprises.map((enterprise) => (
+            <CardMobile
+              key={enterprise.id}
+              srcImage={logoEnterprise}
+              alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
+              title={enterprise.business_name}
+              subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
+              data-testid="card-mobile"
+            />
+          ))}
         </>
       ) : (
         <>
-          <HeaderDesktop data-testid="header-desktop" />
-
           <section className="grid-enterprises-cards">
-            <EnterprisesCard
-              srcImage={logoEnterprise}
-              alt={`${enterprisesConstants.logoFrom} ${enterpriseName}`}
-              title={enterpriseName}
-              subtitle={`${enterprisesConstants.responsibleEnterprise} ${responsible}`}
-              data-testid="card-desktop"
-            />
+            {enterprises.map((enterprise) => (
+              <EnterprisesCard
+                key={enterprise.id}
+                srcImage={logoEnterprise}
+                alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
+                title={enterprise.business_name}
+                subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
+                data-testid="card-desktop"
+              />
+            ))}
           </section>
         </>
       )}

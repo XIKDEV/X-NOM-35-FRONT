@@ -17,27 +17,59 @@ input:focus {
 }
 
 /** Login **/
-.login-inputs input {
+.login-inputs-input {
   width: 100%;
   height: 32px;
+}
+.login-inputs-input,
+.login-inputs-input input {
+  border: none;
+  border-radius: 0px;
   border-bottom: 1px solid var(--primary);
+
+  background: none;
 
   color: var(--gray);
 }
-.login-inputs :first-child {
-  margin-bottom: 12px;
+.login-inputs-input::placeholder,
+.login-inputs-input input::placeholder {
+  color: var(--gray);
+  opacity: 40%;
 }
 
 /** Headers **/
-.header-mobile input,
-.header-desktop-input {
+.header-page-input {
+  width: 100%;
+}
+.header-page-input,
+.header-page-input:hover {
   background: var(--gray);
 }
-.header-mobile input {
-  width: 100%;
-  height: 32px;
-  margin: 0px 8px;
+/*? Laptop screen ?*/
+@media (min-width: 769px) {
+  .header-page-input {
+    width: min(428px, 50%);
+  }
 }
-.header-desktop-input {
-  width: min(428px, 50%);
+
+/** Input forms **/
+.input-form,
+.select-form {
+  border: none;
+  border-radius: 0px;
+  border-bottom: 1px solid var(--dark);
+
+  background: none;
+
+  color: var(--dark);
+}
+.input-form::placeholder,
+.select-form .ant-select-selection-placeholder {
+  color: var(--primary) !important;
+  opacity: 40%;
+}
+.select-form .ant-select-selector {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
 }

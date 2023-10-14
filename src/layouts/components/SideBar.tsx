@@ -1,4 +1,5 @@
 import { FC } from 'react';
+import { useDispatch } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBuilding, faUser } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -7,14 +8,21 @@ import {
   faPowerOff,
 } from '@fortawesome/free-solid-svg-icons';
 import { ButtonSidebar } from '.';
-import { ISideBar } from '../../interfaces';
+import { ISideBarProps } from '../../interfaces';
 import { layoutConstants } from '../../constants';
 
-export const SideBar: FC<ISideBar> = ({
+export const SideBar: FC<ISideBarProps> = ({
   isMobile,
   isCollapse,
   handleSidebar,
 }) => {
+  const dispatch: CallableFunction = useDispatch();
+  const handleLogout = () => {
+    import('../../store/auth').then(({ setAuthLogout }) => {
+      dispatch(setAuthLogout());
+    });
+  };
+
   return (
     <div className="sider-content flex-column-center space-between">
       {isMobile ? (
@@ -48,12 +56,14 @@ export const SideBar: FC<ISideBar> = ({
       >
         <ButtonSidebar
           navigationTo="/nom035/enterprises"
+          onClick={isMobile ? handleSidebar : () => {}}
           textBttn={layoutConstants.enterprises}
           icon={faBuilding}
           isCollapse={isCollapse}
         />
         <ButtonSidebar
           navigationTo="/nom035/users"
+          onClick={isMobile ? handleSidebar : () => {}}
           textBttn={layoutConstants.users}
           icon={faUser}
           isCollapse={isCollapse}
@@ -65,7 +75,8 @@ export const SideBar: FC<ISideBar> = ({
         data-testid="sider-logout"
       >
         <ButtonSidebar
-          navigationTo="/auth/login"
+          navigationTo=""
+          onClick={handleLogout}
           textBttn={layoutConstants.logout}
           icon={faPowerOff}
           isCollapse={isCollapse}

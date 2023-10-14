@@ -1,49 +1,53 @@
 import { FC } from 'react';
 import { UsersCard } from '../components';
-import { CardMobile, HeaderDesktop, HeaderMobile } from '../../ui/components';
-import { useScreenSize } from '../../hooks';
+import { CardMobile, HeaderPage } from '../../ui/components';
+import { useUsersPage } from '../hooks';
 import { IUsersPageProps } from '../../interfaces';
-import { usersConstants } from '../../constants/usersConstants';
+import { usersConstants } from '../../constants';
 import '../ui/usersPage.css';
 
 export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
-  const { isMobile } = useScreenSize();
+  const { users, isMobile, contextHolder } = useUsersPage();
 
   //! TODO: temp info
-  const userName = 'Axel Coronado';
-  const role = 'Super Admin';
-  const enterpriseUser = 'XikDev';
-  const iconLogo = '../../../public/_DSC7606.JPG';
+  const iconLogo = '../../../public/XIK_VerdeTransparente.png';
 
   return (
+    //! TODO: Arreglar grid
     <>
+      {contextHolder}
+
+      <HeaderPage
+        handleSidebar={handleSidebar}
+        data-testid="header-desktop"
+        formAdd="addUser"
+      />
       {isMobile ? (
         <>
-          <HeaderMobile
-            handleSidebar={handleSidebar}
-            data-testid="header-mobile"
-          />
-
-          <CardMobile
-            srcImage={iconLogo}
-            alt={`${usersConstants.userIs} ${userName}`}
-            title={userName}
-            subtitle={`${role}: ${enterpriseUser}`}
-            data-testid="card-mobile"
-          />
+          {users.map((user) => (
+            <CardMobile
+              key={user.id}
+              srcImage={iconLogo}
+              alt={`${usersConstants.userIs} ${user.name} ${user.lastname}`}
+              title={`${user.name} ${user.lastname}`}
+              subtitle={`${usersConstants.roleIs} ${user.id_role}`}
+              data-testid="card-mobile"
+            />
+          ))}
         </>
       ) : (
         <>
-          <HeaderDesktop data-testid="header-desktop" />
-
           <section className="grid-users-cards">
-            <UsersCard
-              srcImage={iconLogo}
-              alt={`Usuario: ${userName}`}
-              title={userName}
-              subtitle={`${role}: ${enterpriseUser}`}
-              data-testid="card-desktop"
-            />
+            {users.map((user) => (
+              <UsersCard
+                key={user.id}
+                srcImage={iconLogo}
+                alt={`${usersConstants.userIs} ${user.name} ${user.lastname}`}
+                title={`${user.name} ${user.lastname}`}
+                subtitle={`${usersConstants.roleIs} ${user.id_role}`}
+                data-testid="card-desktop"
+              />
+            ))}
           </section>
         </>
       )}

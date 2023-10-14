@@ -1,10 +1,11 @@
 import { FC } from 'react';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { IButtonSidebar } from '../../interfaces';
+import { IButtonSidebarProps } from '../../interfaces';
 
-export const ButtonSidebar: FC<IButtonSidebar> = ({
+export const ButtonSidebar: FC<IButtonSidebarProps> = ({
   navigationTo,
+  onClick,
   icon,
   textBttn,
   isCollapse,
@@ -12,6 +13,7 @@ export const ButtonSidebar: FC<IButtonSidebar> = ({
   return (
     <NavLink
       to={navigationTo}
+      onClick={onClick}
       className="button-sidebar flex-row-center"
       data-testid="button-sidebar"
     >
