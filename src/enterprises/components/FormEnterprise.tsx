@@ -56,7 +56,7 @@ export const FormEnterprise = () => {
       </div>
       <div className="two-columns-forms">
         <FormItemSelectCoordinate
-          firstData={modules.states}
+          data={modules.states}
           firstName="id_state"
           secondName="id_city"
           firstPlaceholder="Estado"

@@ -20,4 +20,5 @@ export interface IEnterprises {
   turnEnterprise: string;
   tellphone: string;
   email: string;
+  image: string;
 }

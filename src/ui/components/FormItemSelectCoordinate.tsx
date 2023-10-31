@@ -6,16 +6,14 @@ import { IFormFieldUsers, NameType } from '../../interfaces';
 
 export interface IFormItemSelectCoordinate {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  firstData: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // secondData: ICitiesArray | any;
+  data: any;
   firstName: NameType;
   secondName: NameType;
   firstPlaceholder: string;
   secondPlaceholder: string;
 }
 export const FormItemSelectCoordinate: FC<IFormItemSelectCoordinate> = ({
-  firstData,
+  data,
 
   firstName,
   secondName,
@@ -25,16 +23,15 @@ export const FormItemSelectCoordinate: FC<IFormItemSelectCoordinate> = ({
   const [value, setValue] = useState<string[]>([]);
   const [secondValue, setSecondValue] = useState<string | undefined>(undefined);
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleChange = (value: any) => {
-    const temp = firstData.find((item) => item.value == value);
+  const handleChange = (value: string) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const temp = data.find((item: any) => item.value == value);
     console.log(temp.cities);
     setValue(temp.cities);
     setSecondValue(temp.cities);
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSecondChange = (value: any) => {
+  const onSecondChange = (value: string) => {
     setSecondValue(value);
   };
 
@@ -53,7 +50,7 @@ export const FormItemSelectCoordinate: FC<IFormItemSelectCoordinate> = ({
           }}
           onChange={handleChange}
           // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          options={firstData.map((value: any) => ({
+          options={data.map((value: any) => ({
             label: value.label,
             value: value.value,
           }))}
