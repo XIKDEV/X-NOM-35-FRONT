@@ -4,28 +4,28 @@ export const initialStateRequest: IRequestSliceInitialState = {
   isLoading: false,
   isSave: false,
   isError: false,
-  message: '',
+  isMessage: '',
 };
 
 export const isLoadingState: IRequestSliceInitialState = {
   isLoading: true,
   isSave: false,
   isError: false,
-  message: '',
+  isMessage: '',
 };
 
 export const isSaveState: IRequestSliceInitialState = {
   isLoading: false,
   isSave: true,
   isError: false,
-  message: 'Proceso exitoso',
+  isMessage: 'Proceso exitoso',
 };
 
 export const isErrorState: IRequestSliceInitialState = {
   isLoading: false,
   isSave: false,
   isError: true,
-  message: 'Proceso fallido',
+  isMessage: 'Proceso fallido',
 };
 
 export const messageSave: string = 'Proceso exitoso';

@@ -4,9 +4,19 @@ import { inputFormsStyle } from '../styles';
 import { FC, useState } from 'react';
 import { IFormFieldUsers, NameType } from '../../interfaces';
 
+interface ISelectProperties {
+  value: number;
+  label: string;
+}
+interface ICities extends ISelectProperties {}
+
+interface IStates extends ISelectProperties {
+  cities: ICities[];
+}
+
 export interface IFormItemSelectCoordinate {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  data: any;
+  data: IStates[];
   firstName: NameType;
   secondName: NameType;
   firstPlaceholder: string;
@@ -14,21 +24,22 @@ export interface IFormItemSelectCoordinate {
 }
 export const FormItemSelectCoordinate: FC<IFormItemSelectCoordinate> = ({
   data,
-
   firstName,
   secondName,
   firstPlaceholder,
   secondPlaceholder,
 }) => {
-  const [value, setValue] = useState<string[]>([]);
-  const [secondValue, setSecondValue] = useState<string | undefined>(undefined);
+  const [value, setValue] = useState<ICities[]>([]);
+  const [secondValue, setSecondValue] = useState<ICities[] | undefined>(
+    undefined
+  );
 
   const handleChange = (value: string) => {
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const temp = data.find((item: any) => item.value == value);
-    console.log(temp.cities);
-    setValue(temp.cities);
-    setSecondValue(temp.cities);
+    const temp = data.find((item: IStates) => item.value === Number(value));
+    console.log(temp!.cities);
+    setValue(temp!.cities);
+    setSecondValue(temp!.cities);
   };
 
   const onSecondChange = (value: string) => {

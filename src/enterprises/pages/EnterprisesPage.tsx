@@ -26,7 +26,7 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
           {enterprises.map((enterprise) => (
             <CardMobile
               key={enterprise.id}
-              srcImage={`https://${enterprise.image}?alt=media`}
+              srcImage={enterprise.image}
               alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
               title={enterprise.business_name}
               subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
@@ -40,7 +40,7 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
             {enterprises.map((enterprise) => (
               <EnterprisesCard
                 key={enterprise.id}
-                srcImage={`https://${enterprise.image}?alt=media`}
+                srcImage={enterprise.image}
                 alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
                 title={enterprise.business_name}
                 subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
