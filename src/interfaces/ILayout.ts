@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { IconDefinition } from '@fortawesome/fontawesome-svg-core';
 import { IEnterprisesPageProps } from './IEnterprises';
+import { IUsersPageProps } from './IUsers';
 
 export interface ILayoutConstants {
   enterprises: string;
@@ -9,7 +10,21 @@ export interface ILayoutConstants {
 }
 
 export interface ILayoutMainPageProps {
-  page: FC<IEnterprisesPageProps>;
+  page: FC<IEnterprisesPageProps> | FC<IUsersPageProps>;
+}
+
+export interface ISideBarProps {
+  isMobile: boolean;
+  isCollapse: boolean;
+  handleSidebar: () => void;
+}
+
+export interface IButtonSidebarProps {
+  navigationTo: string;
+  onClick: () => void;
+  textBttn: string;
+  icon: IconDefinition;
+  isCollapse: boolean;
 }
 
 export interface ILayoutStyle {
@@ -34,18 +49,4 @@ export interface ISiderStyles {
   top: number;
   bottom: number;
   backgroundColor: string;
-}
-
-export interface ISideBarProps {
-  isMobile: boolean;
-  isCollapse: boolean;
-  handleSidebar: () => void;
-}
-
-export interface IButtonSidebarProps {
-  navigationTo: string;
-  onClick: () => void;
-  textBttn: string;
-  icon: IconDefinition;
-  isCollapse: boolean;
 }

@@ -20,16 +20,16 @@ export interface IRulesInputEmail {
   message: string;
 }
 
-export interface ILoginInput {
+export interface IRulesInputPassword {
+  required: boolean;
+  message: string;
+}
+
+export interface ILoginInputStyle {
   boxShadow: string;
   borderColor: string;
 }
 
-export interface ILoginButton {
+export interface ILoginButtonStyle {
   color: string;
-}
-
-export interface IRulesInputPassword {
-  required: boolean;
-  message: string;
 }

@@ -1,7 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { IAuthSliceInitialState } from '../../interfaces';
+import { IStoreAuthInitialState } from '../../interfaces';
 
-const initialState: IAuthSliceInitialState = {
+const initialState: IStoreAuthInitialState = {
   user: {},
   auth: 'not-auth',
 };

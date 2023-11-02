@@ -1,4 +1,4 @@
-export interface IAuthSliceInitialState {
+export interface IStoreAuthInitialState {
   user: IDataUser | object;
   auth: IAuthStatus;
 }
@@ -50,8 +50,3 @@ export interface IIDPermission {
   permission: string;
   description: string;
 }
-
-// export interface ILoginData {
-//   email: string;
-//   password: string;
-// }
