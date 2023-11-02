@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Layout, List } from 'antd';
 import { IInfoUserProps } from '../../interfaces';
-import { infoUserListItemStyle } from '../../constants/usersConstants';
+import { infoUserListItemStyle } from '../ui';
 
 const { Content } = Layout;
 
