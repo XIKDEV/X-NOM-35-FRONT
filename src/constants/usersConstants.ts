@@ -1,8 +1,4 @@
-import {
-  IInfoUserListItemStyle,
-  IUsersConstants,
-  IUsersPlaceholders,
-} from '../interfaces';
+import { IUsersConstants, IUsersPlaceholders } from '../interfaces';
 
 export const usersConstants: IUsersConstants = {
   titlePage: 'X Nom-035 - Usuarios',
@@ -16,9 +12,4 @@ export const usersPlaceholders: IUsersPlaceholders = {
   lastname: 'Apellido',
   email: 'Email',
   role: 'Role',
-};
-
-export const infoUserListItemStyle: IInfoUserListItemStyle = {
-  color: 'var(--gray)',
-  borderColor: 'var(--primary)',
 };

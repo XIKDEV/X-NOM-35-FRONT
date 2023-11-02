@@ -15,16 +15,6 @@ export interface IFormFieldLogin {
   password?: string;
 }
 
-export interface IRulesInputEmail {
-  required: boolean;
-  message: string;
-}
-
-export interface IRulesInputPassword {
-  required: boolean;
-  message: string;
-}
-
 export interface ILoginInputStyle {
   boxShadow: string;
   borderColor: string;

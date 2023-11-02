@@ -4,11 +4,7 @@ import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
 import { useScreenSize } from '../../hooks';
 import { useLoginPage } from '../hooks';
 import { IFormFieldLogin, RootState } from '../../interfaces';
-import {
-  authConstants,
-  rulesInputEmail,
-  rulesInputPassword,
-} from '../../constants/authConstants';
+import { authConstants } from '../../constants/authConstants';
 import { loginButton, loginInput } from '../ui';
 import '../ui/loginPage.css';
 
@@ -44,7 +40,7 @@ export const LoginPage = () => {
             <Form.Item<IFormFieldLogin>
               name="email"
               rules={[
-                rulesInputEmail,
+                { required: true, message: authConstants.emailWarning },
                 { type: 'email', message: authConstants.emailWrongFormat },
               ]}
             >
@@ -59,7 +55,9 @@ export const LoginPage = () => {
             <Form.Item<IFormFieldLogin>
               name="password"
               style={{ marginBottom: '0px' }}
-              rules={[rulesInputPassword]}
+              rules={[
+                { required: true, message: authConstants.passwordWarning },
+              ]}
             >
               <Input.Password
                 type="password"
