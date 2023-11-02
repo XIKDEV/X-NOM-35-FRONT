@@ -11,9 +11,6 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
 }) => {
   const { enterprises, isMobile, contextHolder } = useEnterprisesPage();
 
-  //! TODO: Info temp
-  const logoEnterprise = '../../../public/_DSC7606.JPG';
-
   return (
     //! TODO: Arreglar grid
     <>
@@ -29,7 +26,7 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
           {enterprises.map((enterprise) => (
             <CardMobile
               key={enterprise.id}
-              srcImage={logoEnterprise}
+              srcImage={enterprise.image}
               alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
               title={enterprise.business_name}
               subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
@@ -43,7 +40,7 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
             {enterprises.map((enterprise) => (
               <EnterprisesCard
                 key={enterprise.id}
-                srcImage={logoEnterprise}
+                srcImage={enterprise.image}
                 alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
                 title={enterprise.business_name}
                 subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}

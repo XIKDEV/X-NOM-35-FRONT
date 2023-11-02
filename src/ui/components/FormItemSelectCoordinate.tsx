@@ -1,42 +1,22 @@
-import { IFormFieldEnterprises } from '../../interfaces/IEnterprises';
+import { FC } from 'react';
 import { Form, Select } from 'antd';
+import { useFormItemSelectCoordinate } from '../hooks';
+import {
+  IFormFieldUsers,
+  IFormItemSelectCoordinateProps,
+  IFormFieldEnterprises,
+} from '../../interfaces';
 import { inputFormsStyle } from '../styles';
-import { FC, useState } from 'react';
-import { IFormFieldUsers, NameType } from '../../interfaces';
 
-export interface IFormItemSelectCoordinate {
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  firstData: any;
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // secondData: ICitiesArray | any;
-  firstName: NameType;
-  secondName: NameType;
-  firstPlaceholder: string;
-  secondPlaceholder: string;
-}
-export const FormItemSelectCoordinate: FC<IFormItemSelectCoordinate> = ({
-  firstData,
-
+export const FormItemSelectCoordinate: FC<IFormItemSelectCoordinateProps> = ({
+  data,
   firstName,
   secondName,
   firstPlaceholder,
   secondPlaceholder,
 }) => {
-  const [value, setValue] = useState<string[]>([]);
-  const [secondValue, setSecondValue] = useState<string | undefined>(undefined);
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const handleChange = (value: any) => {
-    const temp = firstData.find((item) => item.value == value);
-    console.log(temp.cities);
-    setValue(temp.cities);
-    setSecondValue(temp.cities);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  const onSecondChange = (value: any) => {
-    setSecondValue(value);
-  };
+  const { handleChange, secondValue, onSecondChange, value } =
+    useFormItemSelectCoordinate(data);
 
   return (
     <>
@@ -52,8 +32,7 @@ export const FormItemSelectCoordinate: FC<IFormItemSelectCoordinate> = ({
             background: 'var(--gray)',
           }}
           onChange={handleChange}
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          options={firstData.map((value: any) => ({
+          options={data.map((value) => ({
             label: value.label,
             value: value.value,
           }))}
@@ -73,8 +52,7 @@ export const FormItemSelectCoordinate: FC<IFormItemSelectCoordinate> = ({
           }}
           value={secondValue}
           onChange={onSecondChange}
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          options={value.map((value: any) => ({
+          options={value.map((value) => ({
             label: value.label,
             value: value.value,
           }))}
