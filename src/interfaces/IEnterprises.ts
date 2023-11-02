@@ -29,19 +29,8 @@ export interface IEnterprisesPageProps {
   handleSidebar: () => void;
 }
 
-export interface IEnterpriseCardBodyStyle {
-  padding: string;
-}
-
 export interface IEnterpriseInfoPageProps {
   handleSidebar: () => void;
-}
-
-export interface IEnterpriseContentStyle {
-  width: string;
-  height: string;
-  marginTop: string;
-  display: string;
 }
 
 export interface IHeadEnterpriseInfoProps {
@@ -68,22 +57,6 @@ export interface IContract {
   date: string;
 }
 
-export interface IListContractsStyle {
-  width: string;
-}
-
-export interface IListItemContractsStyle {
-  padding: string;
-  border: string;
-}
-
-export interface IBodyContractStyle {
-  height: string;
-  padding: string;
-  display: string;
-  alignItems: string;
-}
-
 export interface IFormFieldEnterprises {
   business_name: string;
   comercial_name: string;
@@ -103,4 +76,31 @@ export interface IFormFieldEnterprises {
   email: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   file: any;
+}
+
+export interface IEnterpriseCardBodyStyle {
+  padding: string;
+}
+
+export interface IEnterpriseContentStyle {
+  width: string;
+  height: string;
+  marginTop: string;
+  display: string;
+}
+
+export interface IListContractsStyle {
+  width: string;
+}
+
+export interface IListItemContractsStyle {
+  padding: string;
+  border: string;
+}
+
+export interface IBodyContractStyle {
+  height: string;
+  padding: string;
+  display: string;
+  alignItems: string;
 }

@@ -1,4 +1,7 @@
 import { IDataUser } from './IStoreAuth';
+import { IModules } from './IStoreCatalogs';
+import { IEnterprises } from './IStoreEnterprises';
+import { IUsers } from './IStoreUsers';
 
 export interface IHttpAdapterHeader {
   auth?: string;
@@ -7,10 +10,17 @@ export interface IHttpAdapterHeader {
 
 export interface IHttpAdapterResponseData {
   success: boolean;
-  data: IDataUser;
+  data: DataType;
   info: object;
   message: string;
 }
+
+export type DataType = IDataUser &
+  IUsers[] &
+  IUsers &
+  IEnterprises[] &
+  IEnterprises &
+  IModules;
 
 export interface ISublink {
   user: string;

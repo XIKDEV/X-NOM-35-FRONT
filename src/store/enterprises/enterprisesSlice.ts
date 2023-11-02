@@ -1,7 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { IStoreEnterprisesInitialState } from '../../interfaces';
 
-// TODO: Crear interface para initialState
 const initialState: IStoreEnterprisesInitialState = {
   enterprises: [],
 };

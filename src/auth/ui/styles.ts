@@ -1,10 +1,10 @@
-import { ILoginButton, ILoginInput } from '../../interfaces';
+import { ILoginButtonStyle, ILoginInputStyle } from '../../interfaces';
 
-export const loginInput: ILoginInput = {
+export const loginInput: ILoginInputStyle = {
   boxShadow: 'none',
   borderColor: 'var(--primary)',
 };
 
-export const loginButton: ILoginButton = {
+export const loginButton: ILoginButtonStyle = {
   color: 'var(--gray)',
 };

@@ -16,15 +16,15 @@ export interface IUsersPageProps {
   handleSidebar: () => void;
 }
 
+export interface IUserInfoPageProps {
+  handleSidebar: () => void;
+}
+
 export interface IUsersCardBodyStyle {
   padding: number;
   height: string;
   display: string;
   alignItems: string;
-}
-
-export interface IUserInfoPageProps {
-  handleSidebar: () => void;
 }
 
 export interface IHeaderUserInfoProps {
@@ -42,14 +42,14 @@ export interface IDataItem {
   info: string;
 }
 
-export interface IInfoUserListItemStyle {
-  color: string;
-  borderColor: string;
-}
-
 export interface IFormFieldUsers {
   name: string;
   lastname: string;
   email: string;
   id_role: string | number;
+}
+
+export interface IInfoUserListItemStyle {
+  color: string;
+  borderColor: string;
 }
