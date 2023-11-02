@@ -1,3 +1,5 @@
+import { IStates } from '.';
+
 export interface IUiConstants {
   inputQuickSearchPlaceholder: string;
 
@@ -81,18 +83,39 @@ export interface IFormsButtonsStyles {
   color: string;
 }
 
-export interface IFormItemInput {
+export interface IFormItemInputProps {
   name: NameType;
   rules?: IRules[];
   placeholder: string;
 }
 
-export interface IFormItemSelect {
+export interface IFormItemSelectProps {
   name: NameType;
   rules?: IRules[];
   placeholder: string;
   options: IOptions[];
 }
+
+export interface IFormItemSelectCoordinateProps {
+  data: IStates[];
+  firstName: NameType;
+  secondName: NameType;
+  firstPlaceholder: string;
+  secondPlaceholder: string;
+}
+
+export interface IFormItemUploadProps {
+  name: NameType;
+  maxCount?: number;
+  accept: string;
+  buttonText: string;
+}
+
+export interface ISelectProperties {
+  value: number;
+  label: string;
+}
+export interface ICities extends ISelectProperties {}
 
 export interface IRules {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any

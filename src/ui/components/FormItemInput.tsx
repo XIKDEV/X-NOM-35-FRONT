@@ -3,11 +3,11 @@ import { Form, Input } from 'antd';
 import {
   IFormFieldEnterprises,
   IFormFieldUsers,
-  IFormItemInput,
+  IFormItemInputProps,
 } from '../../interfaces';
 import { inputFormsStyle } from '../styles';
 
-export const FormItemInput: FC<IFormItemInput> = ({
+export const FormItemInput: FC<IFormItemInputProps> = ({
   name,
   rules = [],
   placeholder,
