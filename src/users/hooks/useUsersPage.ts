@@ -1,8 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { notification } from 'antd';
-import { useScreenSize } from '../../hooks';
-import { NotificationType, RootState } from '../../interfaces';
+import { useOpenNotification, useScreenSize } from '../../hooks';
+import { RootState } from '../../interfaces';
 import { usersConstants } from '../../constants';
 export const useUsersPage = () => {
   const { users } = useSelector((state: RootState) => state.users);
@@ -10,8 +9,14 @@ export const useUsersPage = () => {
     (state: RootState) => state.request
   );
   const dispatch: CallableFunction = useDispatch();
-  const [api, contextHolder] = notification.useNotification();
   const { isMobile } = useScreenSize();
+  const { contextHolder } = useOpenNotification({
+    isSave,
+    isError,
+    isMessage,
+    dispatch,
+    isMobile,
+  });
 
   const changeDocumentTitle = (title: string) => {
     document.title = title;
@@ -36,42 +41,6 @@ export const useUsersPage = () => {
       });
     };
   }, [dispatch, isSave]);
-
-  // TODO: Refactorizar a un custom hook las notificaciones
-  useEffect(() => {
-    const openNotification: (type: NotificationType) => void = (type) => {
-      api[type]({
-        message: 'Ups... algo salió mal',
-        description: isMessage,
-        style: { width: isMobile ? '80%' : '' },
-      });
-    };
-    if (isError) {
-      openNotification('error');
-    }
-    import('../../store/request').then(({ setCleanError }) => {
-      dispatch(setCleanError());
-    });
-  }, [isError, dispatch, isMessage, api, isMobile]);
-
-  useEffect(() => {
-    const openNotification: (type: NotificationType) => void = (type) => {
-      api[type]({
-        message: 'Proceso exitoso',
-        description: isMessage,
-        style: { width: isMobile ? '80%' : '' },
-      });
-    };
-    if (isSave) {
-      import('../../store/forms').then(({ setCloseDrawerForm }) => {
-        dispatch(setCloseDrawerForm());
-      });
-      openNotification('success');
-    }
-    import('../../store/request').then(({ setCleanSave }) => {
-      dispatch(setCleanSave());
-    });
-  }, [isSave, dispatch, isMessage, api, isMobile]);
 
   return { users, isMobile, contextHolder, changeDocumentTitle };
 };
