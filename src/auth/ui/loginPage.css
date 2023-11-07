@@ -45,6 +45,8 @@
     border-radius: 0px;
 
     justify-content: space-around;
+
+    color: var(--gray);
   }
   .login-inputs {
     width: calc(100% - 96px);
