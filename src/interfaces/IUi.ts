@@ -87,6 +87,7 @@ export interface IFormItemInputProps {
   name: NameType;
   rules?: IRules[];
   placeholder: string;
+  classname?: string;
 }
 
 export interface IFormItemSelectProps {
@@ -133,6 +134,8 @@ export interface IOptions {
 }
 
 export type NameType =
+  | 'email'
+  | 'password'
   | 'name'
   | 'lastname'
   | 'email'
