@@ -52,6 +52,10 @@ export const setAuthLogout = () => {
 
 export const validateJwt = () => {
   return async (dispatch: CallableFunction) => {
+    import('../request').then(({ setReloadPage }) => {
+      dispatch(setReloadPage());
+    });
+
     const token = localStorage.getItem('token');
     const header = {
       auth: `Bearer ${token}`,
@@ -66,6 +70,9 @@ export const validateJwt = () => {
       });
 
       if (success) {
+        import('../request').then(({ setPageReloaded }) => {
+          dispatch(setPageReloaded());
+        });
         import('../catalogs').then(({ getCatalogs }) => {
           dispatch(getCatalogs());
         });
@@ -73,6 +80,9 @@ export const validateJwt = () => {
       // eslint-disable-next-line @typescript-eslint/no-explicit-any
     } catch (err: any) {
       console.clear();
+      import('../request').then(({ setPageReloaded }) => {
+        dispatch(setPageReloaded());
+      });
       if (err.response.status === 401) {
         localStorage.removeItem('token');
       }
@@ -81,6 +91,9 @@ export const validateJwt = () => {
 };
 export const noTokenInLocalStorage = () => {
   return async (dispatch: CallableFunction) => {
+    import('../request').then(({ setReloadPage }) => {
+      dispatch(setReloadPage());
+    });
     window.addEventListener('storage', (event) => {
       if (event.storageArea === localStorage) {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -95,6 +108,9 @@ export const noTokenInLocalStorage = () => {
           });
         }
       }
+    });
+    import('../request').then(({ setPageReloaded }) => {
+      dispatch(setPageReloaded());
     });
   };
 };

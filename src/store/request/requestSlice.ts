@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { IRequestSliceInitialState } from '../../interfaces';
 
 const initialState: IRequestSliceInitialState = {
+  isReloadPage: false,
   isLoading: false,
   isSave: false,
   isError: false,
@@ -12,6 +13,12 @@ export const requestSlice = createSlice({
   name: 'request',
   initialState,
   reducers: {
+    setReloadPage: (state) => {
+      state.isReloadPage = true;
+    },
+    setPageReloaded: (state) => {
+      state.isReloadPage = initialState.isReloadPage;
+    },
     setLoading: (state) => {
       state.isLoading = true;
     },
@@ -40,6 +47,8 @@ export const requestSlice = createSlice({
 });
 
 export const {
+  setReloadPage,
+  setPageReloaded,
   setLoading,
   setStopLoading,
   setSave,
