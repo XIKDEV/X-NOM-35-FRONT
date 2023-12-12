@@ -7,7 +7,7 @@ export const HomeRoutes = () => {
   return (
     <Routes>
       <Route
-        path="/nom035/enterprises"
+        path="/nom035/empresas"
         element={<LayoutMainPage page={EnterprisesPage} />}
       />
       <Route
@@ -15,14 +15,14 @@ export const HomeRoutes = () => {
         element={<LayoutMainPage page={EnterpriseInfoPage} />}
       />
       <Route
-        path="/nom035/users"
+        path="/nom035/usuarios"
         element={<LayoutMainPage page={UsersPage} />}
       />
       <Route
         path="/nom035/user"
         element={<LayoutMainPage page={UserInfoPage} />}
       />
-      <Route path="/*" element={<Navigate to="/nom035/enterprises" />} />
+      <Route path="/*" element={<Navigate to="/nom035/empresas" />} />
     </Routes>
   );
 };

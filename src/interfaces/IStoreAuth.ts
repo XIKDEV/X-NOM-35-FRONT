@@ -1,12 +1,11 @@
 export interface IStoreAuthInitialState {
-  user: IDataUser | object;
+  user: IDataUser;
   auth: IAuthStatus;
 }
 
 type IAuthStatus = 'not-auth' | 'auth' | 'checking';
 
-export interface IDataUser {
-  user: IUser;
+export interface IDataUser extends IUser {
   token: string;
 }
 
@@ -22,7 +21,7 @@ export interface IIDRole {
   id: string;
   role: string;
   description: string;
-  roleModule: IRoleModule[];
+  roleModule: IRoleModules[];
 }
 
 export interface IRoleModule {
@@ -49,4 +48,21 @@ export interface IIDPermission {
   id: string;
   permission: string;
   description: string;
+}
+
+export interface IRoleModules {
+  id: number;
+  route: string;
+  module: string;
+  icon: null;
+  menu_option: null;
+  component: string;
+  permission: Permission;
+}
+
+export interface Permission {
+  create: boolean;
+  update: boolean;
+  read: boolean;
+  delete: boolean;
 }

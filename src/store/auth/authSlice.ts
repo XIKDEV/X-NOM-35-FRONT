@@ -2,7 +2,19 @@ import { createSlice } from '@reduxjs/toolkit';
 import { IStoreAuthInitialState } from '../../interfaces';
 
 const initialState: IStoreAuthInitialState = {
-  user: {},
+  user: {
+    token: '',
+    id: 0,
+    name: '',
+    lastname: '',
+    email: '',
+    id_role: {
+      id: '',
+      role: '',
+      description: '',
+      roleModule: [],
+    },
+  },
   auth: 'not-auth',
 };
 

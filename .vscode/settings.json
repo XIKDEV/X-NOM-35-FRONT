@@ -6,7 +6,8 @@
     "Router-Dom",
     "Enterprises",
     "Users",
-    "Forms"
+    "Forms",
+    "SideBar"
   ],
   "typescript.tsdk": "node_modules\\typescript\\lib"
 }
