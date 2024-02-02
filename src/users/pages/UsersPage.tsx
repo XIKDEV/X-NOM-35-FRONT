@@ -7,7 +7,8 @@ import { usersConstants } from '../../constants';
 import '../ui/usersPage.css';
 
 export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
-  const { users, isMobile, contextHolder } = useUsersPage();
+  const { users, isMobile, contextHolder, handleOpenDrawerInfoUser } =
+    useUsersPage();
 
   //! TODO: temp info
   const iconLogo = '../../../public/XIK_VerdeTransparente.png';
@@ -31,6 +32,9 @@ export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
               alt={`${usersConstants.userIs} ${user.name} ${user.lastname}`}
               title={`${user.name} ${user.lastname}`}
               subtitle={`${usersConstants.roleIs} ${user.id_role}`}
+              handleOpenDrawerInfo={() => {
+                handleOpenDrawerInfoUser(user);
+              }}
               data-testid="card-mobile"
             />
           ))}
@@ -45,6 +49,9 @@ export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
                 alt={`${usersConstants.userIs} ${user.name} ${user.lastname}`}
                 title={`${user.name} ${user.lastname}`}
                 subtitle={`${usersConstants.roleIs} ${user.id_role}`}
+                handleOpenDrawerInfo={() => {
+                  handleOpenDrawerInfoUser(user);
+                }}
                 data-testid="card-desktop"
               />
             ))}

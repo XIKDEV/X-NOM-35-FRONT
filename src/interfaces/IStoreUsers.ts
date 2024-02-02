@@ -1,5 +1,6 @@
 export interface IStoreUsersInitialState {
   users: IUsers[];
+  userActive: IUsers;
 }
 export interface IUsers {
   id: number;
