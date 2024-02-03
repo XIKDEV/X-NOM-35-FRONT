@@ -33,10 +33,7 @@ export interface IHeaderUserInfoProps {
   userName: string;
 }
 
-export interface IInfoUserProps {
-  dataList: IDataItem[];
-  isMobile: boolean;
-}
+export interface IInfoUserProps {}
 export interface IDataItem {
   concept: string;
   info: string;
@@ -51,5 +48,9 @@ export interface IFormFieldUsers {
 
 export interface IInfoUserListItemStyle {
   color: string;
-  borderColor: string;
+  textAlign: TextAlignType;
+  paddingBottom: string;
+  fontSize: string;
 }
+
+export type TextAlignType = 'center' | 'left' | 'right';

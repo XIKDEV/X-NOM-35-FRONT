@@ -1,15 +1,20 @@
+import { MouseEventHandler } from 'react';
 import { IStates } from '.';
 
 export interface IUiConstants {
   inputQuickSearchPlaceholder: string;
 
+  none: string;
+
   addUser: string;
   editUser: string;
   deleteUser: string;
+  infoUser: string;
+
   addEnterprise: string;
   editEnterprise: string;
   deleteEnterprise: string;
-  none: string;
+  infoEnterprise: string;
 }
 
 export interface IHeaderPageProps {
@@ -26,6 +31,7 @@ export interface ICardProps {
   title: string;
   subtitle: string;
   alt: string;
+  handleOpenDrawerInfo?: MouseEventHandler<HTMLDivElement>;
 }
 
 export interface ICardMobileBodyStyles {
@@ -61,13 +67,17 @@ export interface IHeaderFormsDrawerStyles {
 }
 
 export interface IForms {
+  none: () => string;
+
   addUser: IForm;
   editUser: () => string;
   deleteUser: () => string;
+  infoUser: IForm;
+
   addEnterprise: IForm;
   editEnterprise: () => string;
   deleteEnterprise: () => string;
-  none: () => string;
+  infoEnterprise: () => string;
 }
 export interface IForm {
   (): JSX.Element;

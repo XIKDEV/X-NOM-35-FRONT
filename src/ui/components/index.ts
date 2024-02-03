@@ -8,3 +8,4 @@ export * from './FormsButtons';
 export * from './FormsDrawer';
 export * from './HeaderMobile';
 export * from './HeaderPage';
+export * from './InfoDrawerButtons';

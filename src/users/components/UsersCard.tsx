@@ -10,9 +10,15 @@ export const UsersCard: FC<ICardProps> = ({
   title,
   subtitle,
   alt,
+  handleOpenDrawerInfo,
 }) => {
   return (
-    <Card className="card-user br-4" bodyStyle={usersCardBodyStyle}>
+    <Card
+      className="card-user br-4"
+      hoverable
+      bodyStyle={usersCardBodyStyle}
+      onClick={handleOpenDrawerInfo}
+    >
       <img className="br-4" src={srcImage} alt={alt} />
       <Meta
         title={

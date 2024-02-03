@@ -1,8 +1,9 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOpenNotification, useScreenSize } from '../../hooks';
-import { RootState } from '../../interfaces';
+import { IUsers, RootState } from '../../interfaces';
 import { usersConstants } from '../../constants';
+
 export const useUsersPage = () => {
   const { users } = useSelector((state: RootState) => state.users);
   const { isSave, isError, isMessage } = useSelector(
@@ -42,5 +43,20 @@ export const useUsersPage = () => {
     };
   }, [dispatch, isSave]);
 
-  return { users, isMobile, contextHolder, changeDocumentTitle };
+  const handleOpenDrawerInfoUser = (user: IUsers) => {
+    import('../../store/users').then(({ setUserActive }) => {
+      dispatch(setUserActive(user));
+    });
+    import('../../store/forms').then(({ setOpenDrawerForm }) => {
+      dispatch(setOpenDrawerForm('infoUser'));
+    });
+  };
+
+  return {
+    users,
+    isMobile,
+    contextHolder,
+    changeDocumentTitle,
+    handleOpenDrawerInfoUser,
+  };
 };

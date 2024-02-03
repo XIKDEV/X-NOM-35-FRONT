@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { IForms, RootState } from '../../interfaces';
 import { useScreenSize } from '../../hooks';
-import { FormUser } from '../../users/components';
+import { FormUser, InfoUser } from '../../users/components';
 import { FormEnterprise } from '../../enterprises/components';
 
 export const useFormsDrawer = () => {
@@ -17,13 +17,17 @@ export const useFormsDrawer = () => {
   };
 
   const forms: IForms = {
+    none: () => '',
+
     addUser: () => <FormUser />,
     editUser: () => '',
     deleteUser: () => '',
+    infoUser: () => <InfoUser />,
+
     addEnterprise: () => <FormEnterprise />,
     editEnterprise: () => '',
     deleteEnterprise: () => '',
-    none: () => '',
+    infoEnterprise: () => '',
   };
 
   return { isDrawerForm, isForm, isMobile, handleCloseDrawerForm, forms };

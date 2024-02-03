@@ -8,6 +8,8 @@ export const usersCardBodyStyle: IUsersCardBodyStyle = {
 };
 
 export const infoUserListItemStyle: IInfoUserListItemStyle = {
-  color: 'var(--gray)',
-  borderColor: 'var(--primary)',
+  color: 'var(--primary)',
+  textAlign: 'center',
+  paddingBottom: '24px',
+  fontSize: 'var(--text)',
 };
