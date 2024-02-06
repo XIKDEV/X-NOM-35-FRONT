@@ -9,7 +9,12 @@ import '../ui/enterprisesPage.css';
 export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
   handleSidebar,
 }) => {
-  const { enterprises, isMobile, contextHolder } = useEnterprisesPage();
+  const {
+    enterprises,
+    isMobile,
+    contextHolder,
+    handleOpenDrawerInfoEnterprise,
+  } = useEnterprisesPage();
 
   return (
     //! TODO: Arreglar grid
@@ -30,6 +35,9 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
               alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
               title={enterprise.business_name}
               subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
+              handleOpenDrawerInfo={() => {
+                handleOpenDrawerInfoEnterprise(enterprise);
+              }}
               data-testid="card-mobile"
             />
           ))}
@@ -44,6 +52,9 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
                 alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
                 title={enterprise.business_name}
                 subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
+                handleOpenDrawerInfo={() => {
+                  handleOpenDrawerInfoEnterprise(enterprise);
+                }}
                 data-testid="card-desktop"
               />
             ))}

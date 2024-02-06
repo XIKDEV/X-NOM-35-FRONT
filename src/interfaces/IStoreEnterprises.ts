@@ -1,5 +1,6 @@
 export interface IStoreEnterprisesInitialState {
   enterprises: IEnterprises[];
+  enterpriseActive: IEnterprises;
 }
 
 export interface IEnterprises {

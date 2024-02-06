@@ -77,7 +77,7 @@ export interface IForms {
   addEnterprise: IForm;
   editEnterprise: () => string;
   deleteEnterprise: () => string;
-  infoEnterprise: () => string;
+  infoEnterprise: IForm;
 }
 export interface IForm {
   (): JSX.Element;

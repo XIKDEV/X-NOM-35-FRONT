@@ -1,7 +1,7 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import { LayoutMainPage } from '../../layouts/pages';
 import { UsersPage } from '../../users/pages';
-import { EnterpriseInfoPage, EnterprisesPage } from '../../enterprises/pages';
+import { EnterprisesPage } from '../../enterprises/pages';
 
 export const HomeRoutes = () => {
   return (
@@ -10,10 +10,7 @@ export const HomeRoutes = () => {
         path="/nom035/empresas"
         element={<LayoutMainPage page={EnterprisesPage} />}
       />
-      <Route
-        path="/nom035/enterprise"
-        element={<LayoutMainPage page={EnterpriseInfoPage} />}
-      />
+
       <Route
         path="/nom035/usuarios"
         element={<LayoutMainPage page={UsersPage} />}

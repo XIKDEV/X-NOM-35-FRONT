@@ -39,13 +39,7 @@ export interface IHeadEnterpriseInfoProps {
   enterpriseName: string;
 }
 
-export interface IInfoEnterpriseProps {
-  addres: string;
-  goals: string;
-  activity: string;
-  mainActivity: string;
-  quantityEmployees: string;
-}
+export interface IInfoEnterpriseProps {}
 
 export interface IContractsListProps {
   data: IContract[];

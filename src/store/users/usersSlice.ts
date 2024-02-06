@@ -26,11 +26,11 @@ export const usersSlice = createSlice({
     setUserActive: (state, { payload }) => {
       state.userActive = payload;
     },
-    setCleaneUserActive: (state) => {
+    setCleanUserActive: (state) => {
       state.userActive = initialState.userActive;
     },
   },
 });
 
-export const { setUsers, setCleanUsers, setUserActive, setCleaneUserActive } =
+export const { setUsers, setCleanUsers, setUserActive, setCleanUserActive } =
   usersSlice.actions;

@@ -1,8 +1,8 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { IForms, RootState } from '../../interfaces';
-import { useScreenSize } from '../../hooks';
 import { FormUser, InfoUser } from '../../users/components';
-import { FormEnterprise } from '../../enterprises/components';
+import { FormEnterprise, InfoEnterprise } from '../../enterprises/components';
+import { useScreenSize } from '../../hooks';
+import { IForms, RootState } from '../../interfaces';
 
 export const useFormsDrawer = () => {
   const { isDrawerForm, isForm } = useSelector(
@@ -13,6 +13,12 @@ export const useFormsDrawer = () => {
   const handleCloseDrawerForm = () => {
     import('../../store/forms').then(({ setCloseDrawerForm }) => {
       dispatch(setCloseDrawerForm());
+    });
+    import('../../store/users').then(({ setCleanUserActive }) => {
+      dispatch(setCleanUserActive());
+    });
+    import('../../store/enterprises').then(({ setCleanEnterpriseActive }) => {
+      dispatch(setCleanEnterpriseActive());
     });
   };
 
@@ -27,7 +33,7 @@ export const useFormsDrawer = () => {
     addEnterprise: () => <FormEnterprise />,
     editEnterprise: () => '',
     deleteEnterprise: () => '',
-    infoEnterprise: () => '',
+    infoEnterprise: () => <InfoEnterprise />,
   };
 
   return { isDrawerForm, isForm, isMobile, handleCloseDrawerForm, forms };

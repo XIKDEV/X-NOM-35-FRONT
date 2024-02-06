@@ -7,8 +7,11 @@ export const useInfoDrawerButtons = () => {
     import('../../store/forms').then(({ setCloseDrawerForm }) => {
       dispatch(setCloseDrawerForm());
     });
-    import('../../store/users').then(({ setCleaneUserActive }) => {
-      dispatch(setCleaneUserActive());
+    import('../../store/users').then(({ setCleanUserActive }) => {
+      dispatch(setCleanUserActive());
+    });
+    import('../../store/enterprises').then(({ setCleanEnterpriseActive }) => {
+      dispatch(setCleanEnterpriseActive());
     });
   };
 
