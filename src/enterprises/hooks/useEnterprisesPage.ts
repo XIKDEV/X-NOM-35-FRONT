@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useOpenNotification, useScreenSize } from '../../hooks';
-import { RootState } from '../../interfaces';
+import { IEnterprises, RootState } from '../../interfaces';
 import { enterprisesConstants } from '../../constants';
 
 export const useEnterprisesPage = () => {
@@ -43,5 +43,20 @@ export const useEnterprisesPage = () => {
     };
   }, [dispatch, isSave]);
 
-  return { enterprises, isMobile, contextHolder, changeDocumentTitle };
+  const handleOpenDrawerInfoEnterprise = (enterprise: IEnterprises) => {
+    import('../../store/enterprises').then(({ setEnterpriseActive }) => {
+      dispatch(setEnterpriseActive(enterprise));
+    });
+    import('../../store/forms').then(({ setOpenDrawerForm }) => {
+      dispatch(setOpenDrawerForm('infoEnterprise'));
+    });
+  };
+
+  return {
+    enterprises,
+    isMobile,
+    contextHolder,
+    changeDocumentTitle,
+    handleOpenDrawerInfoEnterprise,
+  };
 };
