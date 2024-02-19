@@ -15,7 +15,12 @@ export interface IRole {
 export interface IStates {
   value: number;
   label: string;
-  cities: string[];
+  cities: ICity[];
+}
+
+export interface ICity {
+  value: number;
+  label: string;
 }
 
 export interface ICitiesArray {

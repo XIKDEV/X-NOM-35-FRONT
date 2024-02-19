@@ -5,6 +5,16 @@ export const useInfoEnterprise = () => {
   const { enterpriseActive } = useSelector(
     (state: RootState) => state.enterprises
   );
+  const { modules } = useSelector((state: RootState) => state.catalogs);
+
+  const state = modules.states.find(
+    (state) => state.value === enterpriseActive.id_state.id
+  );
+  const stateLabel = state?.label;
+  const city = state?.cities.find(
+    (city) => city.value === enterpriseActive.id_city.id
+  );
+  const cityLabel = city?.label;
 
   const dataList = [
     {
@@ -17,7 +27,7 @@ export const useInfoEnterprise = () => {
     },
     {
       concept: 'Dirección',
-      info: `${enterpriseActive.street} #${enterpriseActive.exterior_number}-${enterpriseActive.interior_number}, ${enterpriseActive.suburb}, C.P. ${enterpriseActive.postal_code}, ${enterpriseActive.municipality}, ${enterpriseActive.state}, ${enterpriseActive.country}`,
+      info: `${enterpriseActive.street} #${enterpriseActive.exterior_number}-${enterpriseActive.interior_number}, ${enterpriseActive.suburb}, C.P. ${enterpriseActive.postal_code}, ${cityLabel}, ${stateLabel}, ${enterpriseActive.country}`,
     },
     {
       concept: 'Tipo de empresa',
@@ -25,7 +35,7 @@ export const useInfoEnterprise = () => {
     },
     {
       concept: 'Giro de la empresa',
-      info: enterpriseActive.turnEnterprise,
+      info: enterpriseActive.turn_enterprise,
     },
     {
       concept: 'Teléfono',

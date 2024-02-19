@@ -14,12 +14,22 @@ export interface IEnterprises {
   interior_number: string;
   suburb: string;
   postal_code: number;
-  state: string;
-  municipality: string;
   country: string;
+  id_city: IIDCity;
+  id_state: IIDState;
   enterprise_type: string;
-  turnEnterprise: string;
+  turn_enterprise: string;
   tellphone: string;
   email: string;
   image: string;
+}
+
+export interface IIDCity {
+  id: number;
+  name: string;
+}
+export interface IIDState {
+  id: number;
+  code: string;
+  name: string;
 }
