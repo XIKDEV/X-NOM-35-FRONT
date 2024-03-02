@@ -8,19 +8,21 @@ export const useInfoEnterprise = () => {
   const { modules } = useSelector((state: RootState) => state.catalogs);
 
   const state = modules.states.find(
-    (state) => state.value === enterpriseActive.id_state.id
+    (state) => state.value === enterpriseActive.state
   );
   const stateLabel = state?.label;
   const city = state?.cities.find(
-    (city) => city.value === enterpriseActive.id_city.id
+    (city) => city.value === enterpriseActive.city
   );
   const cityLabel = city?.label;
 
+  const enterpriseLogo = enterpriseActive.image;
+  const enterpriseName = {
+    businessName: enterpriseActive.business_name,
+    comercialName: enterpriseActive.comercial_name,
+  };
+
   const dataList = [
-    {
-      concept: 'Empresa',
-      info: `${enterpriseActive.business_name} (${enterpriseActive.comercial_name})`,
-    },
     {
       concept: 'Representante legal',
       info: enterpriseActive.legal_representative,
@@ -47,5 +49,5 @@ export const useInfoEnterprise = () => {
     },
   ];
 
-  return { dataList };
+  return { enterpriseName, enterpriseLogo, dataList };
 };

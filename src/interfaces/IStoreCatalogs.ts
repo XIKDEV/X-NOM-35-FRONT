@@ -8,7 +8,7 @@ export interface IModules {
 }
 
 export interface IRole {
-  value: string;
+  value: string | number;
   label: string;
 }
 

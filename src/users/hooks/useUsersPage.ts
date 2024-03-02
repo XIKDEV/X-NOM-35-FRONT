@@ -6,9 +6,11 @@ import { usersConstants } from '../../constants';
 
 export const useUsersPage = () => {
   const { users } = useSelector((state: RootState) => state.users);
+  const { modules } = useSelector((state: RootState) => state.catalogs);
   const { isSave, isError, isMessage } = useSelector(
     (state: RootState) => state.request
   );
+
   const dispatch: CallableFunction = useDispatch();
   const { isMobile } = useScreenSize();
   const { contextHolder } = useOpenNotification({
@@ -52,7 +54,16 @@ export const useUsersPage = () => {
     });
   };
 
+  const usersList = users.map((user) => {
+    const roleMatch = modules.role.find(
+      (role) => role.value === user.id_role.toString()
+    );
+
+    return (user = { ...user, roleLabel: roleMatch?.label });
+  });
+
   return {
+    usersList,
     users,
     isMobile,
     contextHolder,

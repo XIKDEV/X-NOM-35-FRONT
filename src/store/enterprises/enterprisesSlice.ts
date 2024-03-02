@@ -15,15 +15,8 @@ const initialState: IStoreEnterprisesInitialState = {
     suburb: '',
     postal_code: 0,
     country: '',
-    id_city: {
-      id: 0,
-      name: '',
-    },
-    id_state: {
-      id: 0,
-      code: '',
-      name: '',
-    },
+    city: 0,
+    state: 0,
     enterprise_type: '',
     turn_enterprise: '',
     tellphone: '',
