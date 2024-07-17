@@ -15,12 +15,18 @@ export interface IHttpAdapterResponseData {
   message: string;
 }
 
+export interface IAuth {
+  user: IUsers[];
+  token: string;
+}
+
 export type DataType = IDataUser &
   IUsers[] &
   IUsers &
   IEnterprises[] &
   IEnterprises &
-  IModules;
+  IModules &
+  IAuth;
 
 export interface ISublink {
   user: string;

@@ -6,7 +6,7 @@ export const sublink: ISublink = {
   validJwt: 'auth/valid/JWT',
   roles: 'roles',
   enterprise: 'enterprise',
-  catalogs: 'catalog/get-catalogs',
+  catalogs: 'catalog/static-catalogs',
   default: 'module',
 };
 
