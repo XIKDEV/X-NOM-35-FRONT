@@ -7,6 +7,8 @@ export type FormType =
   | 'addUser'
   | 'editUser'
   | 'deleteUser'
+  | 'infoUser'
   | 'addEnterprise'
   | 'editEnterprise'
-  | 'deleteEnterprise';
+  | 'deleteEnterprise'
+  | 'infoEnterprise';

@@ -9,10 +9,12 @@ import '../ui/enterprisesPage.css';
 export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
   handleSidebar,
 }) => {
-  const { enterprises, isMobile, contextHolder } = useEnterprisesPage();
-
-  //! TODO: Info temp
-  const logoEnterprise = '../../../public/_DSC7606.JPG';
+  const {
+    enterprises,
+    isMobile,
+    contextHolder,
+    handleOpenDrawerInfoEnterprise,
+  } = useEnterprisesPage();
 
   return (
     //! TODO: Arreglar grid
@@ -29,10 +31,13 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
           {enterprises.map((enterprise) => (
             <CardMobile
               key={enterprise.id}
-              srcImage={logoEnterprise}
+              srcImage={enterprise.image}
               alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
               title={enterprise.business_name}
               subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
+              handleOpenDrawerInfo={() => {
+                handleOpenDrawerInfoEnterprise(enterprise);
+              }}
               data-testid="card-mobile"
             />
           ))}
@@ -43,10 +48,13 @@ export const EnterprisesPage: FC<IEnterprisesPageProps> = ({
             {enterprises.map((enterprise) => (
               <EnterprisesCard
                 key={enterprise.id}
-                srcImage={logoEnterprise}
+                srcImage={enterprise.image}
                 alt={`${enterprisesConstants.logoFrom} ${enterprise.business_name}`}
                 title={enterprise.business_name}
                 subtitle={`${enterprisesConstants.responsibleEnterprise} ${enterprise.legal_representative}`}
+                handleOpenDrawerInfo={() => {
+                  handleOpenDrawerInfoEnterprise(enterprise);
+                }}
                 data-testid="card-desktop"
               />
             ))}

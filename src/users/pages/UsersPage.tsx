@@ -7,10 +7,8 @@ import { usersConstants } from '../../constants';
 import '../ui/usersPage.css';
 
 export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
-  const { users, isMobile, contextHolder } = useUsersPage();
-
-  //! TODO: temp info
-  const iconLogo = '../../../public/XIK_VerdeTransparente.png';
+  const { usersList, isMobile, contextHolder, handleOpenDrawerInfoUser } =
+    useUsersPage();
 
   return (
     //! TODO: Arreglar grid
@@ -24,13 +22,16 @@ export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
       />
       {isMobile ? (
         <>
-          {users.map((user) => (
+          {usersList.map((user) => (
             <CardMobile
               key={user.id}
-              srcImage={iconLogo}
-              alt={`${usersConstants.userIs} ${user.name} ${user.lastname}`}
+              srcImage={user.id_enterprise.image}
+              alt={`${usersConstants.representEnterprise} ${user.id_enterprise.business_name}`}
               title={`${user.name} ${user.lastname}`}
-              subtitle={`${usersConstants.roleIs} ${user.id_role}`}
+              subtitle={`${usersConstants.roleIs} ${user.roleLabel}`}
+              handleOpenDrawerInfo={() => {
+                handleOpenDrawerInfoUser(user);
+              }}
               data-testid="card-mobile"
             />
           ))}
@@ -38,13 +39,16 @@ export const UsersPage: FC<IUsersPageProps> = ({ handleSidebar }) => {
       ) : (
         <>
           <section className="grid-users-cards">
-            {users.map((user) => (
+            {usersList.map((user) => (
               <UsersCard
                 key={user.id}
-                srcImage={iconLogo}
-                alt={`${usersConstants.userIs} ${user.name} ${user.lastname}`}
+                srcImage={user.id_enterprise.image}
+                alt={`${usersConstants.representEnterprise} ${user.id_enterprise.business_name}`}
                 title={`${user.name} ${user.lastname}`}
-                subtitle={`${usersConstants.roleIs} ${user.id_role}`}
+                subtitle={`${usersConstants.roleIs} ${user.roleLabel}`}
+                handleOpenDrawerInfo={() => {
+                  handleOpenDrawerInfoUser(user);
+                }}
                 data-testid="card-desktop"
               />
             ))}

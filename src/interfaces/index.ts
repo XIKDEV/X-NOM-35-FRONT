@@ -1,5 +1,3 @@
-// TODO: Analizar todos los interface y types para ver si el uso es correcto, no se repite información y la distribución es la correcta
-
 export * from './IApi';
 export * from './IAuth';
 export * from './IEnterprises';

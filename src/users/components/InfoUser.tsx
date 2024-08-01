@@ -1,26 +1,43 @@
 import { FC } from 'react';
-import { Layout, List } from 'antd';
+import { Card, Layout } from 'antd';
+import { InfoDrawerButtons } from '../../ui/components';
+import { useInfoUser } from '../hooks';
 import { IInfoUserProps } from '../../interfaces';
-import { infoUserListItemStyle } from '../../constants/usersConstants';
+import '../ui/userInfoPage.css';
 
 const { Content } = Layout;
 
-export const InfoUser: FC<IInfoUserProps> = ({ dataList, isMobile }) => {
+export const InfoUser: FC<IInfoUserProps> = () => {
+  const { userLogoEnterprise, userName, associatedEnterprise, dataList } =
+    useInfoUser();
+
   return (
-    <Content style={{ marginTop: isMobile ? '0px' : '36px' }}>
-      <List
-        dataSource={dataList}
-        renderItem={(item) => (
-          <List.Item
-            style={{
-              ...infoUserListItemStyle,
-              fontSize: isMobile ? 'var(--text-small)' : 'var(--text)',
-            }}
+    <Content>
+      <section className="section-logo-name">
+        <img
+          src={userLogoEnterprise ? userLogoEnterprise : ''}
+          alt={associatedEnterprise}
+        />
+
+        <div>
+          <h2>{userName}</h2>
+          <h2>{associatedEnterprise}</h2>
+        </div>
+      </section>
+
+      <section className="info-cards">
+        {dataList.map((item) => (
+          <div
+            key={`${item.concept} - ${item.info}`}
+            className="info-cards-container"
           >
-            {item.concept}: {item.info}
-          </List.Item>
-        )}
-      />
+            <p>{item.concept}</p>
+            <Card className="card">{item.info}</Card>
+          </div>
+        ))}
+      </section>
+
+      <InfoDrawerButtons />
     </Content>
   );
 };

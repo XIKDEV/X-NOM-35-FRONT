@@ -131,17 +131,17 @@ button {
 
 /** Forms **/
 .forms-buttons {
-  margin-top: 32px;
+  margin-top: 24px;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: column-reverse;
 }
 .forms-buttons .forms-buttons-button {
   border: none;
   background: var(--primary);
   color: var(--gray);
 }
-.forms-buttons .forms-buttons-button:first-child {
+.forms-buttons .forms-buttons-button:last-child {
   margin-bottom: 24px;
 }
 /** Laptop screen **/

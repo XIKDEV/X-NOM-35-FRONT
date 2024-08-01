@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBuilding, faUser } from '@fortawesome/free-regular-svg-icons';
 import {
@@ -8,7 +8,7 @@ import {
   faPowerOff,
 } from '@fortawesome/free-solid-svg-icons';
 import { ButtonSidebar } from '.';
-import { ISideBarProps } from '../../interfaces';
+import { ISideBarProps, RootState } from '../../interfaces';
 import { layoutConstants } from '../../constants';
 
 export const SideBar: FC<ISideBarProps> = ({
@@ -16,6 +16,7 @@ export const SideBar: FC<ISideBarProps> = ({
   isCollapse,
   handleSidebar,
 }) => {
+  const { user } = useSelector((state: RootState) => state.auth);
   const dispatch: CallableFunction = useDispatch();
   const handleLogout = () => {
     import('../../store/auth').then(({ setAuthLogout }) => {
@@ -54,20 +55,24 @@ export const SideBar: FC<ISideBarProps> = ({
         className="sider-navigation flex-column-center"
         data-testid="sider-navigation"
       >
-        <ButtonSidebar
-          navigationTo="/nom035/enterprises"
-          onClick={isMobile ? handleSidebar : () => {}}
-          textBttn={layoutConstants.enterprises}
-          icon={faBuilding}
-          isCollapse={isCollapse}
-        />
-        <ButtonSidebar
-          navigationTo="/nom035/users"
-          onClick={isMobile ? handleSidebar : () => {}}
-          textBttn={layoutConstants.users}
-          icon={faUser}
-          isCollapse={isCollapse}
-        />
+        {user.id_role.roleModule.map((item) => {
+          const navigation = `/nom035${item.route}`;
+          console.log(navigation);
+          return (
+            <ButtonSidebar
+              key={item.id}
+              navigationTo={navigation}
+              onClick={isMobile ? handleSidebar : () => {}}
+              textBttn={
+                item.component === 'usuario'
+                  ? layoutConstants.users
+                  : layoutConstants.enterprises
+              }
+              icon={item.component === 'usuario' ? faUser : faBuilding}
+              isCollapse={isCollapse}
+            />
+          );
+        })}
       </section>
 
       <section

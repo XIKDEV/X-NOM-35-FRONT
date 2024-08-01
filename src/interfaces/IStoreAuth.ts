@@ -1,12 +1,11 @@
-export interface IAuthSliceInitialState {
-  user: IDataUser | object;
+export interface IStoreAuthInitialState {
+  user: IDataUser;
   auth: IAuthStatus;
 }
 
 type IAuthStatus = 'not-auth' | 'auth' | 'checking';
 
-export interface IDataUser {
-  user: IUser;
+export interface IDataUser extends IUser {
   token: string;
 }
 
@@ -22,7 +21,7 @@ export interface IIDRole {
   id: string;
   role: string;
   description: string;
-  roleModule: IRoleModule[];
+  roleModule: IRoleModules[];
 }
 
 export interface IRoleModule {
@@ -51,7 +50,19 @@ export interface IIDPermission {
   description: string;
 }
 
-// export interface ILoginData {
-//   email: string;
-//   password: string;
-// }
+export interface IRoleModules {
+  id: number;
+  route: string;
+  module: string;
+  icon: null;
+  menu_option: null;
+  component: string;
+  permission: Permission;
+}
+
+export interface Permission {
+  create: boolean;
+  update: boolean;
+  read: boolean;
+  delete: boolean;
+}

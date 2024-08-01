@@ -15,21 +15,11 @@ export interface IFormFieldLogin {
   password?: string;
 }
 
-export interface IRulesInputEmail {
-  required: boolean;
-  message: string;
-}
-
-export interface ILoginInput {
+export interface ILoginInputStyle {
   boxShadow: string;
   borderColor: string;
 }
 
-export interface ILoginButton {
+export interface ILoginButtonStyle {
   color: string;
-}
-
-export interface IRulesInputPassword {
-  required: boolean;
-  message: string;
 }

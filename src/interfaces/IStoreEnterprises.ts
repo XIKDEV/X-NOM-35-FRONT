@@ -1,5 +1,6 @@
 export interface IStoreEnterprisesInitialState {
   enterprises: IEnterprises[];
+  enterpriseActive: IEnterprises;
 }
 
 export interface IEnterprises {
@@ -8,16 +9,17 @@ export interface IEnterprises {
   comercial_name: string;
   legal_representative: string;
   RFC: string;
-  street: string;
   exterior_number: string;
   interior_number: string;
   suburb: string;
   postal_code: number;
-  state: string;
-  municipality: string;
+  street: string;
+  city: number;
+  state: number;
   country: string;
   enterprise_type: string;
-  turnEnterprise: string;
+  turn_enterprise: string;
   tellphone: string;
   email: string;
+  image: string;
 }

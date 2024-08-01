@@ -9,9 +9,15 @@ export const CardMobile: FC<ICardProps> = ({
   alt,
   title,
   subtitle,
+  handleOpenDrawerInfo,
 }) => {
   return (
-    <Card className="card-mobile br-4" bodyStyle={cardMobileBodyStyles}>
+    <Card
+      className="card-mobile br-4"
+      hoverable
+      bodyStyle={cardMobileBodyStyles}
+      onClick={handleOpenDrawerInfo}
+    >
       <img className="br-4" src={srcImage} alt={alt} />
       <Meta
         title={

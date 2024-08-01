@@ -2,12 +2,12 @@ import { FC } from 'react';
 import { Form, Select } from 'antd';
 import {
   IFormFieldEnterprises,
-  IFormItemSelect,
+  IFormItemSelectProps,
   IFormFieldUsers,
 } from '../../interfaces';
 import { inputFormsStyle } from '../styles';
 
-export const FormItemSelect: FC<IFormItemSelect> = ({
+export const FormItemSelect: FC<IFormItemSelectProps> = ({
   name,
   rules = [],
   placeholder,

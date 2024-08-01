@@ -4,17 +4,23 @@ export interface IStoreCatalogsInitialState {
 
 export interface IModules {
   role: IRole[];
-  states: IStates;
+  states: IStates[];
 }
 
 export interface IRole {
-  value: string;
+  value: string | number;
   label: string;
 }
 
 export interface IStates {
-  statesArray: string[];
-  citiesArray: ICitiesArray;
+  value: number;
+  label: string;
+  cities: ICity[];
+}
+
+export interface ICity {
+  value: number;
+  label: string;
 }
 
 export interface ICitiesArray {

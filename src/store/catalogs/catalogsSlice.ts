@@ -4,13 +4,7 @@ import { IStoreCatalogsInitialState } from '../../interfaces';
 const initialState: IStoreCatalogsInitialState = {
   modules: {
     role: [],
-    states: {
-      statesArray: [],
-      citiesArray: {
-        'Baja California': [],
-        'Baja California Sur': [],
-      },
-    },
+    states: [],
   },
 };
 

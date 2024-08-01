@@ -29,19 +29,8 @@ export interface IEnterprisesPageProps {
   handleSidebar: () => void;
 }
 
-export interface IEnterpriseCardBodyStyle {
-  padding: string;
-}
-
 export interface IEnterpriseInfoPageProps {
   handleSidebar: () => void;
-}
-
-export interface IEnterpriseContentStyle {
-  width: string;
-  height: string;
-  marginTop: string;
-  display: string;
 }
 
 export interface IHeadEnterpriseInfoProps {
@@ -50,13 +39,7 @@ export interface IHeadEnterpriseInfoProps {
   enterpriseName: string;
 }
 
-export interface IInfoEnterpriseProps {
-  addres: string;
-  goals: string;
-  activity: string;
-  mainActivity: string;
-  quantityEmployees: string;
-}
+export interface IInfoEnterpriseProps {}
 
 export interface IContractsListProps {
   data: IContract[];
@@ -66,22 +49,6 @@ export interface IContractsListProps {
 export interface IContract {
   contract: string;
   date: string;
-}
-
-export interface IListContractsStyle {
-  width: string;
-}
-
-export interface IListItemContractsStyle {
-  padding: string;
-  border: string;
-}
-
-export interface IBodyContractStyle {
-  height: string;
-  padding: string;
-  display: string;
-  alignItems: string;
 }
 
 export interface IFormFieldEnterprises {
@@ -103,4 +70,31 @@ export interface IFormFieldEnterprises {
   email: string;
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   file: any;
+}
+
+export interface IEnterpriseCardBodyStyle {
+  padding: string;
+}
+
+export interface IEnterpriseContentStyle {
+  width: string;
+  height: string;
+  marginTop: string;
+  display: string;
+}
+
+export interface IListContractsStyle {
+  width: string;
+}
+
+export interface IListItemContractsStyle {
+  padding: string;
+  border: string;
+}
+
+export interface IBodyContractStyle {
+  height: string;
+  padding: string;
+  display: string;
+  alignItems: string;
 }

@@ -1,18 +1,12 @@
+import { useState, FC } from 'react';
 import { Button, Form, Upload, UploadFile } from 'antd';
 import {
   IFormFieldEnterprises,
   IFormFieldUsers,
-  NameType,
+  IFormItemUploadProps,
 } from '../../interfaces';
-import { useState, FC } from 'react';
 
-export interface IFormItemUpload {
-  name: NameType;
-  maxCount?: number;
-  accept: string;
-  buttonText: string;
-}
-export const FormItemUpload: FC<IFormItemUpload> = ({
+export const FormItemUpload: FC<IFormItemUploadProps> = ({
   name,
   maxCount = 1,
   accept,

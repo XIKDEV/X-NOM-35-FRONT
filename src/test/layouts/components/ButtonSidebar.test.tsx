@@ -11,7 +11,7 @@ describe('Test in <ButtonSidebar />', () => {
     const { container, queryByText } = render(
       <Router>
         <ButtonSidebar
-          navigationTo="/nom035/enterprises"
+          navigationTo="/nom035/empresas"
           onClick={() => {}}
           icon={faBuilding}
           textBttn="Enterprises"
@@ -31,7 +31,7 @@ describe('Test in <ButtonSidebar />', () => {
     const { container, queryByText } = render(
       <Router>
         <ButtonSidebar
-          navigationTo="/nom035/enterprises"
+          navigationTo="/nom035/empresas"
           onClick={() => {}}
           icon={faBuilding}
           textBttn="Enterprises"

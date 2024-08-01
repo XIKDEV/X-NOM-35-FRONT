@@ -6,7 +6,9 @@
     "Router-Dom",
     "Enterprises",
     "Users",
-    "Forms"
+    "Forms",
+    "SideBar"
   ],
-  "typescript.tsdk": "node_modules\\typescript\\lib"
+  "typescript.tsdk": "node_modules\\typescript\\lib",
+  "deepscan.enable": true
 }

@@ -1,15 +1,11 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Button, Form, Input } from 'antd';
-import { EyeInvisibleOutlined, EyeOutlined } from '@ant-design/icons';
+import { Button, Form } from 'antd';
+import { FormItemInput, FormItemInputPassword } from '../../ui/components';
 import { useScreenSize } from '../../hooks';
 import { useLoginPage } from '../hooks';
 import { IFormFieldLogin, RootState } from '../../interfaces';
-import {
-  authConstants,
-  rulesInputEmail,
-  rulesInputPassword,
-} from '../../constants/authConstants';
-import { loginButton, loginInput } from '../ui';
+import { authConstants } from '../../constants/authConstants';
+import { loginButton } from '../ui';
 import '../ui/loginPage.css';
 
 export const LoginPage = () => {
@@ -40,45 +36,19 @@ export const LoginPage = () => {
             alt="XikDev"
           />
           <div className="login-inputs">
-            {/* TODO: utilizar funcional component FormItemInput */}
-            <Form.Item<IFormFieldLogin>
+            <FormItemInput
               name="email"
+              placeholder={authConstants.placeholderEmail}
               rules={[
-                rulesInputEmail,
-                { type: 'email', message: authConstants.emailWrongFormat },
+                {
+                  type: 'email',
+                  message: authConstants.emailWrongFormat,
+                },
               ]}
-            >
-              <Input
-                autoComplete="off"
-                placeholder={authConstants.placeholderEmail}
-                className="login-inputs-input"
-                style={loginInput}
-              />
-            </Form.Item>
+              classname="login-inputs-input"
+            />
 
-            <Form.Item<IFormFieldLogin>
-              name="password"
-              style={{ marginBottom: '0px' }}
-              rules={[rulesInputPassword]}
-            >
-              <Input.Password
-                type="password"
-                autoComplete="off"
-                placeholder={authConstants.placeholderPassword}
-                className="login-inputs-input"
-                style={{
-                  marginBottom: '0px',
-                  ...loginInput,
-                }}
-                iconRender={(visible) =>
-                  visible ? (
-                    <EyeOutlined style={{ color: 'var(--gray)' }} />
-                  ) : (
-                    <EyeInvisibleOutlined style={{ color: 'var(--gray)' }} />
-                  )
-                }
-              />
-            </Form.Item>
+            <FormItemInputPassword />
           </div>
 
           <Form.Item

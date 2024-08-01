@@ -2,14 +2,15 @@ import { FC } from 'react';
 import { Card } from 'antd';
 import Meta from 'antd/es/card/Meta';
 import { ICardProps } from '../../interfaces';
-import { enterprisesCardBodyStyle } from '../ui';
 import { cardMetaStyle } from '../../ui/styles';
+import { enterprisesCardBodyStyle } from '../ui';
 
 export const EnterprisesCard: FC<ICardProps> = ({
   srcImage,
   title,
   subtitle,
   alt,
+  handleOpenDrawerInfo,
 }) => {
   return (
     <Card
@@ -17,6 +18,7 @@ export const EnterprisesCard: FC<ICardProps> = ({
       hoverable
       bodyStyle={enterprisesCardBodyStyle}
       cover={<img src={srcImage} alt={alt} />}
+      onClick={handleOpenDrawerInfo}
     >
       <Meta
         title={

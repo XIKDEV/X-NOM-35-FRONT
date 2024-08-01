@@ -1,13 +1,20 @@
+import { MouseEventHandler } from 'react';
+import { IStates } from '.';
+
 export interface IUiConstants {
   inputQuickSearchPlaceholder: string;
+
+  none: string;
 
   addUser: string;
   editUser: string;
   deleteUser: string;
+  infoUser: string;
+
   addEnterprise: string;
   editEnterprise: string;
   deleteEnterprise: string;
-  none: string;
+  infoEnterprise: string;
 }
 
 export interface IHeaderPageProps {
@@ -24,6 +31,7 @@ export interface ICardProps {
   title: string;
   subtitle: string;
   alt: string;
+  handleOpenDrawerInfo?: MouseEventHandler<HTMLDivElement>;
 }
 
 export interface ICardMobileBodyStyles {
@@ -59,13 +67,17 @@ export interface IHeaderFormsDrawerStyles {
 }
 
 export interface IForms {
+  none: () => string;
+
   addUser: IForm;
   editUser: () => string;
   deleteUser: () => string;
+  infoUser: IForm;
+
   addEnterprise: IForm;
   editEnterprise: () => string;
   deleteEnterprise: () => string;
-  none: () => string;
+  infoEnterprise: IForm;
 }
 export interface IForm {
   (): JSX.Element;
@@ -81,18 +93,40 @@ export interface IFormsButtonsStyles {
   color: string;
 }
 
-export interface IFormItemInput {
+export interface IFormItemInputProps {
   name: NameType;
   rules?: IRules[];
   placeholder: string;
+  classname?: string;
 }
 
-export interface IFormItemSelect {
+export interface IFormItemSelectProps {
   name: NameType;
   rules?: IRules[];
   placeholder: string;
   options: IOptions[];
 }
+
+export interface IFormItemSelectCoordinateProps {
+  data: IStates[];
+  firstName: NameType;
+  secondName: NameType;
+  firstPlaceholder: string;
+  secondPlaceholder: string;
+}
+
+export interface IFormItemUploadProps {
+  name: NameType;
+  maxCount?: number;
+  accept: string;
+  buttonText: string;
+}
+
+export interface ISelectProperties {
+  value: number;
+  label: string;
+}
+export interface ICities extends ISelectProperties {}
 
 export interface IRules {
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -110,6 +144,8 @@ export interface IOptions {
 }
 
 export type NameType =
+  | 'email'
+  | 'password'
   | 'name'
   | 'lastname'
   | 'email'
